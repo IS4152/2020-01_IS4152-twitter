@@ -1,0 +1,3 @@
+tweet_id,text,created_at,timestamp_ms,user_id,user_name,user_location,geo,coordinates,place_full_name,place_country,retweeted_status_id
+tweet_id,text,created_at,timestamp_ms,user_id,user_name,user_location,geo,coordinates,place_full_name,place_country,retweeted_status_id
+tweet_id,text,created_at,timestamp_ms,user_id,user_name,user_location,geo,coordinates,place_full_name,place_country,retweeted_status_id

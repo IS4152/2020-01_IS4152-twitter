@@ -4,13 +4,16 @@ import os
 import csv
 import datetime
 
-auth = tweepy.OAuthHandler(os.environ['CONSUMER_KEY'], os.environ['CONSUMER_SECRET'])
-auth.set_access_token(os.environ['ACCESS_TOKEN'], os.environ['ACCESS_TOKEN_SECRET'])
+auth = tweepy.OAuthHandler(os.getenv('CONSUMER_KEY'), os.getenv('CONSUMER_SECRET'))
+auth.set_access_token(os.getenv('ACCESS_TOKEN'), os.getenv('ACCESS_TOKEN_SECRET'))
 api = tweepy.API(auth, wait_on_rate_limit=True)
 csv_file = open(datetime.date.today().isoformat() + '.csv', 'a')
 csv_writer = csv.writer(csv_file, delimiter=',')
 csv_writer.writerow(['tweet_id', 'text', 'created_at', 'timestamp_ms', 'user_id', 'user_name', 'user_location', 'geo', 'coordinates', 'place_full_name', 'place_country', 'retweeted_status_id'])
 
+results = api.search(q='cheese', count=100)
+
+print(results[1].text)
 class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status):
         print(status.id)
