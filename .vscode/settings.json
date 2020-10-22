@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "C:\\Users\\choon\\AppData\\Local\\Continuum\\anaconda3\\python.exe"
+=======
+    "python.pythonPath": "C:\\Users\\choon\\AppData\\Local\\Continuum\\anaconda3\\envs\\test\\python.exe"
+>>>>>>> 02ae46d0a08143d0f43cf438bc1612ab3ef58fe4
 }
