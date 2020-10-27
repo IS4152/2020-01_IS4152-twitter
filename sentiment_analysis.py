@@ -63,14 +63,11 @@ a.label_candidates()
 print(a.df.columns)
 import datetime
 
-print(a.df['timestamp_ms'])
-#a.df['timestamp_ms'] = [x/1000 for x in a.df['timestamp_ms']]
-#a.df['timestamp_ms'] = a.df['timestamp_ms'].astype(float)
-print(a.df['timestamp_ms'][0])
-print(a.df['timestamp_ms'][1])
-#a.df['timestamp_ms'] = [x.strftime('%Y%m%d%H%M%S%f') for x in a.df['timestamp_ms']]
-a.df['timestamp_ms'] = [datetime.datetime.fromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S.%f') for x in a.df['timestamp_ms']]
+
+#a.df['timestamp_ms'] = [datetime.datetime.fromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S.%f') for x in a.df['timestamp_ms']]
 biden = a.df[a.df['candidate']=='Biden']
 trump = a.df[a.df['candidate']=='Trump']
-biden.to_json('biden.json')
-biden.to_csv('biden.csv')
+biden.to_json('data/output/biden_1810.json')
+biden.to_csv('data/output/biden_1810.csv')
+trump.to_json('data/output/trump_1810.json')
+trump.to_csv('data/output/trump_1810.csv')
