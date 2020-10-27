@@ -9,11 +9,9 @@ from nltk.stem import WordNetLemmatizer
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 import json
-
 stop_words = set(stopwords.words('english')) 
-
 class sentiment_analysis():
-
+    
     def __init__(self,csv):
         self.csv = csv
         self.df = pd.read_csv(csv)
@@ -57,11 +55,22 @@ class sentiment_analysis():
             else: 
                 self.df.loc[i,'candidate'] = 'Biden'
 
-a = sentiment_analysis('data/2020-10-16.csv')
+a = sentiment_analysis('data/2020-10-18.csv')
 a.add_processed()
 a.score_tweets()
 a.separate_scores()
 a.label_candidates()
-a.df['timestamp'] = datetime.fromtimestamp(a.df['timestamp'])
-a.df.to_json('test.json')
-a.df.to_csv('output.csv')
+print(a.df.columns)
+import datetime
+
+print(a.df['timestamp_ms'])
+#a.df['timestamp_ms'] = [x/1000 for x in a.df['timestamp_ms']]
+#a.df['timestamp_ms'] = a.df['timestamp_ms'].astype(float)
+print(a.df['timestamp_ms'][0])
+print(a.df['timestamp_ms'][1])
+#a.df['timestamp_ms'] = [x.strftime('%Y%m%d%H%M%S%f') for x in a.df['timestamp_ms']]
+a.df['timestamp_ms'] = [datetime.datetime.fromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S.%f') for x in a.df['timestamp_ms']]
+biden = a.df[a.df['candidate']=='Biden']
+trump = a.df[a.df['candidate']=='Trump']
+biden.to_json('biden.json')
+biden.to_csv('biden.csv')
