@@ -1,11 +1,38 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 
+//import DatatablePage from './DatatablePage';
+
+import ReactWordCloud from 'react-wordcloud';
+
+import Testing from './testing.js';
+
 class App extends Component {
+
   constructor(props) {
     super(props);
 
     this.updateCharts = this.updateCharts.bind(this);
+
+    this.words = {
+
+      word: [{
+        text: 'told',
+        value: 64,
+      },
+      {
+        text: 'mistake',
+        value: 11,
+      },
+      {
+        text: 'thought',
+        value: 16,
+      },
+      {
+        text: 'bad',
+        value: 17,
+      }]
+    }
 
     this.trumpState = {
       optionsMixedChart: {
@@ -414,6 +441,7 @@ class App extends Component {
     };
   }
 
+
   updateCharts() {
     const max = 90;
     const min = 30;
@@ -429,7 +457,7 @@ class App extends Component {
       });
       newMixedSeries.push({ data: data, type: s.type });
     });
-
+  
     this.state.seriesBar.forEach(s => {
       const data = s.data.map(() => {
         return Math.floor(Math.random() * (180 - min + 1)) + min;
@@ -444,6 +472,8 @@ class App extends Component {
       seriesRadial: [Math.floor(Math.random() * (90 - 50 + 1)) + 50]
     });
   }
+
+
 
   render() {
     return (
@@ -486,6 +516,44 @@ class App extends Component {
             <p className="col">
               <button onClick={this.updateCharts}>Update!</button>
             </p>
+          </div>
+          <div className="row">
+            <ReactWordCloud words={this.words.word} />
+          </div>
+          <div className="row">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="row">
+            <DatatablePage />
           </div>
         </div>
       </div>
