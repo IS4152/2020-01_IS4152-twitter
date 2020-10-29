@@ -6,7 +6,7 @@ def process_csv(path_to_csv):
     a.score_tweets()
     a.separate_scores()
     a.label_candidates()
-    print(a.df.columns)
+    print(a.df.head())
     a.df['timestamp'] = datetime.fromtimestamp(a.df['timestamp_ms'])
     a.df.to_json('test.json')
     a.df.to_csv('output.csv')

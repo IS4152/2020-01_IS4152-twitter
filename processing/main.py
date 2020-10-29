@@ -5,6 +5,7 @@ import json
 import pandas as pd
 import numpy as np
 from topic import topic_model
+from sentiment_analysis import process_tweets, score_tweets, separate_scores, label_candidates
 
 # logging.basicConfig(
 #     format='%(asctime)s %(levelname)-8s %(message)s',
@@ -33,6 +34,16 @@ class NumpyEncoder(json.JSONEncoder):
             return obj.tolist()
         return json.JSONEncoder.default(self, obj)
 
+def process_tweets(df,text):
+    #stripping the common stop letters
+    text = re.sub(r'\@\w+|\#|\n|]b','', text)
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    text = re.sub('([A-Z][a-z]+)', r' \1', text) #separattion of camelCase words to get more word tokens
+    text_tokens = word_tokenize(text)
+    filtered_words = [w for w in text_tokens if not w in stop_words] #removing of common stopwords
+    return " ".join(filtered_words)
+
+
 def main():
     data_dir = '/mnt/d/Development/IS4152-twitter/data'
     output_dir = '/mnt/d/Development/IS4152-twitter/output'
@@ -44,10 +55,35 @@ def main():
     csv_file = path.join(data_dir, today + '.csv')
 
     df = pd.read_csv(csv_file)
-
     tweets = df['text'].values.tolist()
     topics_word_freq = topic_model(tweets, output_today_dir)
     output_json = []
+
+    #remove sarcastic tweets
+    df = df[df['sarcasm_value']<0] #takes value less than 0 which are non-saracastic tweets
+
+    #process the tweets
+    processed = []
+    for i in range(df.shape[0]):
+        processed.append(self.process_tweets(df.loc[i,'text']))
+    df['processed_tweets'] = processed
+
+    df = score_tweets(df)
+    df = separate_scores(df)
+    df = label_candidates(df)
+
+    #creating individual df
+    trump_df = df[df['candidate']=='Trump']
+    biden_df = df[df['candidate']=='Biden']
+
+    trump_df['created_at'] = pd.to_datetime(trump_df['created_at'])
+    trump_df['created_at'] = [trump_df.loc[i,'created_at'].replace(minute=0,second=0) for i in range(trump_df.shape[0])]
+    trump_df_grp = trump_df.groupby(trump_df['created_at']).mean()
+
+    biden_df['created_at'] = pd.to_datetime(biden_df['created_at'])
+    biden_df['created_at'] = [biden_df.loc[i,'created_at'].replace(minute=0,second=0) for i in range(biden_df.shape[0])]
+    biden_df_grp = biden_df.groupby(biden_df['created_at']).mean()
+
     try:
         with open(output_path, 'r') as output_file:
             output_json = json.load(output_file)
