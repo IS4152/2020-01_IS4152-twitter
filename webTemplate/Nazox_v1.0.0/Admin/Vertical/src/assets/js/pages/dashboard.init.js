@@ -21,8 +21,15 @@ a = '';
 var data = fetch('../data/test.json').then(function (res) {
     return res.json();
 }).then(function (data) {
+    tweet_id
+    
     a = data;
     console.log(a);
+    for(arr in a){
+        for(item in arr){
+            
+        }
+    }
 });
 
 dataSet = JSON.parse(a);
