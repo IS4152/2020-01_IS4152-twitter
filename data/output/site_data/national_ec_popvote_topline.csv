@@ -1,0 +1,2 @@
+mean_dem_ev,median_dem_ev,mode_dem_ev,upper_90_dem_ev,lower_90_dem_ev,upper_60_dem_ev,lower_60_dem_ev,dem_win_prob,rep_win_prob,mean_dem_vote,median_dem_vote,mode_dem_vote,upper_90_dem_vote,lower_90_dem_vote,upper_60_dem_vite,lower_60_dem_vote,dem_vote_win_prob,rep_vote_win_prob,dem_popvote_dem_ec,dem_popvote_rep_ec,rep_popvote_rep_ec,rep_popvote_dem_ec,date,dem_poll_average_low,dem_poll_average_high,dem_poll_average_mean
+337.392,340,374,415,227,377,298,0.91,0.087,0.539,0.539,0.513,0.569,0.507,0.552,0.526,0.993,0.007,0.91,0.079,0.007,0,2020-10-24,0.509,0.567,0.538
