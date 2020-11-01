@@ -81,6 +81,9 @@ def main():
     trump_df_grp = trump_df.groupby(trump_df['created_at_hr']).mean()
     trump_df_grp = trump_df_grp.reset_index()
     trump_df_grp = trump_df_grp[['created_at_hr','sarcasm_value','compounded','neutral','positive','negative']]
+    trump_df_grp['hour'] = [t.hour for t in trump_df_grp['created_at_hr']]
+    trump_hour = trump_df_grp.to_dict('records')
+    trump_hour = next((item for item in trump_df_grp if item.get('hour') == hour), {})
 
 
     biden_df['created_at_hr'] = pd.to_datetime(biden_df['created_at'])
@@ -88,8 +91,13 @@ def main():
     biden_df_grp = biden_df.groupby(biden_df['created_at_hr']).mean()
     biden_df_grp = biden_df_grp.reset_index()
     biden_df_grp = biden_df_grp[['created_at_hr','sarcasm_value','compounded','neutral','positive','negative']]
+    biden_df_grp['hour'] = [t.hour for t in biden_df_grp['created_at_hr']]
+    biden_df_grp = biden_df_grp.to_dict('records')
+    biden_hour = next((item for item in biden_df_grp if item.get('hour') == hour), {})
 
-
+    combined = { 'hour': hour, 'biden': biden_hour, 'trump': trump_hour }
+    sentiment =[]
+    sentiment.append(combined)
     try:
         with open(output_path, 'r') as output_file:
             output_json = json.load(output_file)
@@ -101,6 +109,7 @@ def main():
         output_today = { 'date': today }
         output_json.append(output_today)
     output_today['topics'] = topics_word_freq # stringify numpy float32
+    output_today['sentiment'] = sentiment # stringify numpy float32
     try:
         with open(output_path, 'w') as output_file:
             # update output json
