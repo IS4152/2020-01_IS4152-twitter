@@ -46,5 +46,38 @@ def label_candidates(df):
         else: 
             df.loc[i,'candidate'] = 'Biden'
     return df
+df = pd.read_csv('../data/2020-10-21.csv')
+
+df = df[df['sarcasm_value']<0] #takes value less than 0 which are non-saracastic tweets
+
+#process the tweets
+processed = []
+for text in df['text']:
+    processed.append(process_tweets(text))
+df['processed_tweets'] = processed
+
+df = score_tweets(df)
+df = separate_scores(df)
+df = label_candidates(df)
+#creating individual df
+trump_df = df[df['candidate']=='Trump']
+biden_df = df[df['candidate']=='Biden']
+
+trump_df['created_at_hr'] = pd.to_datetime(trump_df['created_at'])
+
+trump_df['created_at_hr'] = trump_df['created_at_hr'].apply(lambda x:x.replace(minute=0,second=0) )
+
+trump_df_grp = trump_df.groupby(trump_df['created_at_hr']).mean()
+
+trump_df_grp = trump_df_grp.reset_index()
+trump_df_grp = trump_df_grp[['created_at_hr','sarcasm_value','compounded','neutral','positive','negative']]
 
 
+biden_df['created_at_hr'] = pd.to_datetime(biden_df['created_at'])
+
+biden_df['created_at_hr'] = biden_df['created_at_hr'].apply(lambda x:x.replace(minute=0,second=0) )
+biden_df_grp = biden_df.groupby(biden_df['created_at_hr']).mean()
+biden_df_grp = biden_df_grp.reset_index()
+biden_df_grp = biden_df_grp[['created_at_hr','sarcasm_value','compounded','neutral','positive','negative']]
+trump_df_grp.to_csv('../data/output/trump_0111.csv')
+biden_df_grp.to_csv('../data/output/biden_0111.csv')
