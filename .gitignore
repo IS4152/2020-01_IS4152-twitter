@@ -4,3 +4,4 @@ env/
 .venv/
 webTemplate/
 output/
+**/__pycache__/
