@@ -5,3 +5,4 @@ env/
 webTemplate/
 output/
 **/__pycache__/
+.vscode/
