@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 from topic import topic_model
 from sentiment_analysis import process_tweets, score_tweets, separate_scores, label_candidates
+from correlation import correlation
 
 # logging.basicConfig(
 #     format='%(asctime)s %(levelname)-8s %(message)s',
@@ -98,6 +99,7 @@ def main():
     combined = { 'hour': hour, 'biden': biden_hour, 'trump': trump_hour }
     sentiment =[]
     sentiment.append(combined)
+    
     try:
         with open(output_path, 'r') as output_file:
             output_json = json.load(output_file)
