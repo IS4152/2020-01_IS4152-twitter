@@ -2,7 +2,6 @@
 env/
 .env
 .venv/
-webTemplate/
 output/
 **/__pycache__/
 .vscode/
