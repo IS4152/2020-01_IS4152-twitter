@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    @@include("partials/title-meta.html", {"title": "Dashboard"})
+
+    <!-- jquery.vectormap css -->
+    <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- DataTables -->
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"
+        type="text/css" />
+
+    @@include("partials/head-css.html")
+
+</head>
+
+<body data-sidebar="dark">
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        @@include("partials/topbar.html")
+
+        @@include("partials/sidebar.html")
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    @@include("partials/page-title.html", {"pagetitle": "Nazox", "title": "Dashboard"})
+
+                    <div class="row">
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Donald Trump Sentiments</h4>
+
+                                    <div id="trumpSentimentChart" class="apex-charts" dir="ltr"></div>
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Joe Biden Sentiments</h4>
+
+                                    <div id="bidenSentimentChart" class="apex-charts" dir="ltr"></div>
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-8">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="card-title">With indicators</h4>
+                                    <p class="card-title-desc">You can also add the indicators to the
+                                        carousel, alongside the controls, too.</p>
+
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0"
+                                                class="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="carousel-item active" id='topic1'>
+
+                                            </div>
+                                            <div class="carousel-item" id='topic2'>
+
+                                            </div>
+                                            <div class="carousel-item" id='topic3'>
+                                            </div>
+                                            <div class="carousel-item" id='topic4'>
+                                            </div>
+                                            <div class="carousel-item" id='topic5'>
+                                            </div>
+
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                            data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                            data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="dropdown float-right">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <i class="mdi mdi-dots-vertical"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Export
+                                                Report</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                                            <!-- item-->
+                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="card-title mb-4">Latest Transactions</h4>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-centered datatable dt-responsive nowrap"
+                                            data-page-length="5"
+                                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th style="width: 20px;">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck">&nbsp;</label>
+                                                        </div>
+                                                    </th>
+                                                    <th>Tweet ID</th>
+                                                    <th>Date</th>
+                                                    <th>Billing Name</th>
+                                                    <th>Total</th>
+                                                    <th>Payment Status</th>
+                                                    <th style="width: 120px;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck1">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck1">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1572</a> </td>
+                                                    <td>
+                                                        04 Apr, 2020
+                                                    </td>
+                                                    <td>Walter Brown</td>
+
+                                                    <td>
+                                                        $172
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-success font-size-12">Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck2">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck2">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1571</a> </td>
+                                                    <td>
+                                                        03 Apr, 2020
+                                                    </td>
+                                                    <td>Jimmy Barker</td>
+
+                                                    <td>
+                                                        $165
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-warning font-size-12">
+                                                            unpaid</div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck3">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck3">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1570</a> </td>
+                                                    <td>
+                                                        03 Apr, 2020
+                                                    </td>
+                                                    <td>Donald Bailey</td>
+
+                                                    <td>
+                                                        $146
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-success font-size-12">Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck4">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck4">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1569</a> </td>
+                                                    <td>
+                                                        02 Apr, 2020
+                                                    </td>
+                                                    <td>Paul Jones</td>
+
+                                                    <td>
+                                                        $183
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-success font-size-12">Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck5">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck5">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1568</a> </td>
+                                                    <td>
+                                                        01 Apr, 2020
+                                                    </td>
+                                                    <td>Jefferson Allen</td>
+
+                                                    <td>
+                                                        $160
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-danger font-size-12">
+                                                            Chargeback
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck6">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck6">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1567</a> </td>
+                                                    <td>
+                                                        31 Mar, 2020
+                                                    </td>
+                                                    <td>Jeffrey Waltz</td>
+
+                                                    <td>
+                                                        $105
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-warning font-size-12">
+                                                            unpaid</div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck7">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck7">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1566</a> </td>
+                                                    <td>
+                                                        30 Mar, 2020
+                                                    </td>
+                                                    <td>Jewel Buckley</td>
+
+                                                    <td>
+                                                        $112
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-success font-size-12">Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck8">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck8">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1565</a> </td>
+                                                    <td>
+                                                        29 Mar, 2020
+                                                    </td>
+                                                    <td>Jamison Clark</td>
+
+                                                    <td>
+                                                        $123
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-success font-size-12">Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck9">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck9">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1564</a> </td>
+                                                    <td>
+                                                        28 Mar, 2020
+                                                    </td>
+                                                    <td>Eddy Torres</td>
+
+                                                    <td>
+                                                        $141
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-success font-size-12">Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="ordercheck10">
+                                                            <label class="custom-control-label"
+                                                                for="ordercheck10">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td><a href="javascript: void(0);"
+                                                            class="text-dark font-weight-bold">#NZ1563</a> </td>
+                                                    <td>
+                                                        28 Mar, 2020
+                                                    </td>
+                                                    <td>Frank Dean</td>
+
+                                                    <td>
+                                                        $164
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-soft-warning font-size-12">
+                                                            unpaid</div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:void(0);" class="mr-3 text-primary"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Edit"><i
+                                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                                        <a href="javascript:void(0);" class="text-danger"
+                                                            data-toggle="tooltip" data-placement="top" title=""
+                                                            data-original-title="Delete"><i
+                                                                class="mdi mdi-trash-can font-size-18"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- end row -->
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            @@include("partials/footer.html")
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    @@include("partials/right-sidebar.html")
+
+    @@include("partials/vendor-scripts.html")
+
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- jquery.vectormap map -->
+    <script src="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js"></script>
+
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="assets/js/pages/dashboard.init.js"></script>
+
+    <script src="assets/js/app.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></s
+
+</body>
+
+</html>
