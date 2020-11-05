@@ -6,3 +6,6 @@ webTemplate/
 output/
 **/__pycache__/
 .vscode/
+
+# Local Netlify folder
+.netlify
