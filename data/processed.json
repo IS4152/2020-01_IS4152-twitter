@@ -1,0 +1,985 @@
+[
+  {
+    "date": "2020-10-18",
+    "sentiment": [
+      {
+        "hour": 0,
+        "trump": {
+          "sentimentpositive": 0.5439768328804608,
+          "sentimentnegative": 0.7014268705391742,
+          "compounded": 0.34545
+        },
+        "biden": {
+          "sentimentpositive": 0.6664769069555465,
+          "sentimentnegative": 0.6742224973896005,
+          "compounded": 0.6435
+        },
+        "sarcasm": 0.3839460461692912
+      },
+      {
+        "hour": 1,
+        "trump": {
+          "sentimentpositive": 0.8770619803271709,
+          "sentimentnegative": 0.2834982495460894,
+          "compounded": 0.7745
+        },
+        "biden": {
+          "sentimentpositive": 0.654686599232196,
+          "sentimentnegative": 0.6933808837665019,
+          "compounded": 0.6765
+        },
+        "sarcasm": 0.2825966181882116
+      },
+      {
+        "hour": 2,
+        "trump": {
+          "sentimentpositive": 0.2979143493517362,
+          "sentimentnegative": 0.15145637114052435,
+          "compounded": 0.34545
+        },
+        "biden": {
+          "sentimentpositive": 0.3464891335432383,
+          "sentimentnegative": 0.24424848590903214,
+          "compounded": 0.34545
+        },
+        "sarcasm": 0.44465428256678297
+      },
+      {
+        "hour": 3,
+        "trump": {
+          "sentimentpositive": 0.4876492977306104,
+          "sentimentnegative": 0.07519590361569195,
+          "compounded": 0.34545
+        },
+        "biden": {
+          "sentimentpositive": 0.9561927743596166,
+          "sentimentnegative": 0.8519748408260739,
+          "compounded": 0.34545
+        },
+        "sarcasm": 0.08518741226450643
+      },
+      {
+        "hour": 4,
+        "trump": {
+          "sentimentpositive": 0.4056470608217393,
+          "sentimentnegative": 0.6252952123091207,
+          "compounded": 0.34545
+        },
+        "biden": {
+          "sentimentpositive": 0.25920807910629695,
+          "sentimentnegative": 0.3749841133848615,
+          "compounded": 0.34545
+        },
+        "sarcasm": 0.2552025837893599
+      },
+      {
+        "hour": 5,
+        "trump": {
+          "sentimentpositive": 0.7365119809769087,
+          "sentimentnegative": 0.5000858326803841,
+          "compounded": 0.34545
+        },
+        "biden": {
+          "sentimentpositive": 0.49083581694847256,
+          "sentimentnegative": 0.7615483076428353,
+          "compounded": 0.34545
+        },
+        "sarcasm": 0.33588861683119875
+      },
+      {
+        "hour": 6,
+        "trump": {
+          "sentimentpositive": 0.569368720541582,
+          "sentimentnegative": 0.650618754277559,
+          "compounded": 0.34545
+        },
+        "biden": {
+          "sentimentpositive": 0.2735193592403211,
+          "sentimentnegative": 0.43831966011378753,
+          "compounded": 0.34545
+        },
+        "sarcasm": 0.46301910931397505
+      },
+      {
+        "hour": 7,
+        "trump": {
+          "sentimentpositive": 0.5220600964119213,
+          "sentimentnegative": 0.9721936169609364,
+          "compounded": 0.34545
+        },
+        "biden": {
+          "sentimentpositive": 0.498087892104349,
+          "sentimentnegative": 0.40221895373817795,
+          "compounded": 0.34545
+        },
+        "sarcasm": 0.32981161892759236
+      },
+      {
+        "hour": 8,
+        "trump": {
+          "sentimentpositive": 0.4887488527387813,
+          "sentimentnegative": 0.0627508640833705
+        },
+        "biden": {
+          "sentimentpositive": 0.07413858302486309,
+          "sentimentnegative": 0.7195735066920765
+        },
+        "sarcasm": 0.4050582259647073
+      },
+      {
+        "hour": 9,
+        "trump": {
+          "sentimentpositive": 0.47496071781238847,
+          "sentimentnegative": 0.6301198498924658
+        },
+        "biden": {
+          "sentimentpositive": 0.6275585334832121,
+          "sentimentnegative": 0.5536496325432112
+        },
+        "sarcasm": 0.9781798222286393
+      },
+      {
+        "hour": 10,
+        "trump": {
+          "sentimentpositive": 0.09204140885275236,
+          "sentimentnegative": 0.10260283557447392
+        },
+        "biden": {
+          "sentimentpositive": 0.7096983854252918,
+          "sentimentnegative": 0.583490254204936
+        },
+        "sarcasm": 0.8680720363161964
+      },
+      {
+        "hour": 11,
+        "trump": {
+          "sentimentpositive": 0.8552769958091173,
+          "sentimentnegative": 0.26908780903824736
+        },
+        "biden": {
+          "sentimentpositive": 0.928028523115036,
+          "sentimentnegative": 0.9886021488343104
+        },
+        "sarcasm": 0.8582687589345357
+      },
+      {
+        "hour": 12,
+        "trump": {
+          "sentimentpositive": 0.4593380004726748,
+          "sentimentnegative": 0.40193960871574297
+        },
+        "biden": {
+          "sentimentpositive": 0.6167563844892452,
+          "sentimentnegative": 0.4788744117811279
+        },
+        "sarcasm": 0.16258319810610322
+      },
+      {
+        "hour": 13,
+        "trump": {
+          "sentimentpositive": 0.8872304317564426,
+          "sentimentnegative": 0.3674076090075473
+        },
+        "biden": {
+          "sentimentpositive": 0.24279707310592347,
+          "sentimentnegative": 0.4118691648697175
+        },
+        "sarcasm": 0.7435453616733039
+      },
+      {
+        "hour": 14,
+        "trump": {
+          "sentimentpositive": 0.6787204855622164,
+          "sentimentnegative": 0.8747870827674216
+        },
+        "biden": {
+          "sentimentpositive": 0.5679202525984406,
+          "sentimentnegative": 0.95642623453289
+        },
+        "sarcasm": 0.1609894380157273
+      },
+      {
+        "hour": 15,
+        "trump": {
+          "sentimentpositive": 0.5127079999087292,
+          "sentimentnegative": 0.3846359207258283
+        },
+        "biden": {
+          "sentimentpositive": 0.8489389182956386,
+          "sentimentnegative": 0.059455438690474205
+        },
+        "sarcasm": 0.8064164585559359
+      },
+      {
+        "hour": 16,
+        "trump": {
+          "sentimentpositive": 0.4229156818731026,
+          "sentimentnegative": 0.4521725601266109
+        },
+        "biden": {
+          "sentimentpositive": 0.17766163835730953,
+          "sentimentnegative": 0.8714143499972766
+        },
+        "sarcasm": 0.8525762386107278
+      },
+      {
+        "hour": 17,
+        "trump": {
+          "sentimentpositive": 0.8050285533390831,
+          "sentimentnegative": 0.9193552509441463
+        },
+        "biden": {
+          "sentimentpositive": 0.8451383651625652,
+          "sentimentnegative": 0.719950652980619
+        },
+        "sarcasm": 0.21633212106432653
+      },
+      {
+        "hour": 18,
+        "trump": {
+          "sentimentpositive": 0.5893733607819822,
+          "sentimentnegative": 0.19558874572545304
+        },
+        "biden": {
+          "sentimentpositive": 0.1328456966520275,
+          "sentimentnegative": 0.7469147657792228
+        },
+        "sarcasm": 0.8888711004074363
+      },
+      {
+        "hour": 19,
+        "trump": {
+          "sentimentpositive": 0.5935637281668005,
+          "sentimentnegative": 0.5433488903618944
+        },
+        "biden": {
+          "sentimentpositive": 0.20950010920772777,
+          "sentimentnegative": 0.3889687940175921
+        },
+        "sarcasm": 0.229061732690935
+      },
+      {
+        "hour": 20,
+        "trump": {
+          "sentimentpositive": 0.06986776128009464,
+          "sentimentnegative": 0.04786518028825615
+        },
+        "biden": {
+          "sentimentpositive": 0.4692640911950696,
+          "sentimentnegative": 0.9361012597743668
+        },
+        "sarcasm": 0.4985391007575215
+      },
+      {
+        "hour": 21,
+        "trump": {
+          "sentimentpositive": 0.31805816449823743,
+          "sentimentnegative": 0.38593477804143106
+        },
+        "biden": {
+          "sentimentpositive": 0.28803346007339825,
+          "sentimentnegative": 0.02434639788993076
+        },
+        "sarcasm": 0.08491248967850074
+      },
+      {
+        "hour": 22,
+        "trump": {
+          "sentimentpositive": 0.16686392775208359,
+          "sentimentnegative": 0.4240617270153355
+        },
+        "biden": {
+          "sentimentpositive": 0.8300134307468567,
+          "sentimentnegative": 0.4204858511818439
+        },
+        "sarcasm": 0.4737306652196105
+      },
+      {
+        "hour": 23,
+        "trump": {
+          "sentimentpositive": 0.12908250523036147,
+          "sentimentnegative": 0.46761854634981037
+        },
+        "biden": {
+          "sentimentpositive": 0.8341360702893557,
+          "sentimentnegative": 0.6472441441539465
+        },
+        "sarcasm": 0.1636329987164491
+      }
+    ],
+    "tweets": [
+      {
+        "text": "tweet text 0",
+        "candidate": "biden",
+        "sentimentpositive": 0.8230797114239179,
+        "sentimentneutral": 0.37239902780269407,
+        "sentimentnegative": 0.08520811708581877
+      },
+      {
+        "text": "tweet text 1",
+        "candidate": "trump",
+        "sentimentpositive": 0.14893167338585234,
+        "sentimentneutral": 0.700512062717092,
+        "sentimentnegative": 0.9358181796747007
+      },
+      {
+        "text": "tweet text 2",
+        "candidate": "trump",
+        "sentimentpositive": 0.21815282456759388,
+        "sentimentneutral": 0.8592471139147781,
+        "sentimentnegative": 0.36327147922290437
+      },
+      {
+        "text": "tweet text 3",
+        "candidate": "biden",
+        "sentimentpositive": 0.20285778251127118,
+        "sentimentneutral": 0.08039940643639398,
+        "sentimentnegative": 0.4403262837033468
+      },
+      {
+        "text": "tweet text 4",
+        "candidate": "biden",
+        "sentimentpositive": 0.8850493979894161,
+        "sentimentneutral": 0.5621734978226656,
+        "sentimentnegative": 0.7055126559078573
+      },
+      {
+        "text": "tweet text 5",
+        "candidate": "trump",
+        "sentimentpositive": 0.23019901966813072,
+        "sentimentneutral": 0.41728683008473655,
+        "sentimentnegative": 0.42428836194000996
+      },
+      {
+        "text": "tweet text 6",
+        "candidate": "trump",
+        "sentimentpositive": 0.33024407001410205,
+        "sentimentneutral": 0.638803959083962,
+        "sentimentnegative": 0.6179474208716436
+      },
+      {
+        "text": "tweet text 7",
+        "candidate": "biden",
+        "sentimentpositive": 0.5994763582386484,
+        "sentimentneutral": 0.623716373332662,
+        "sentimentnegative": 0.5580597500562923
+      },
+      {
+        "text": "tweet text 8",
+        "candidate": "biden",
+        "sentimentpositive": 0.5629490135219393,
+        "sentimentneutral": 0.587237813166485,
+        "sentimentnegative": 0.8670986237826743
+      },
+      {
+        "text": "tweet text 9",
+        "candidate": "trump",
+        "sentimentpositive": 0.2339677324516023,
+        "sentimentneutral": 0.6907223502341509,
+        "sentimentnegative": 0.8738544533610997
+      }
+    ]
+  },
+  {
+    "date": "2020-10-19",
+    "sentiment": [
+      {
+        "hour": 0,
+        "trump": {
+          "sentimentpositive": 0.7537094635639525,
+          "sentimentnegative": 0.08256572347162039,
+          "compounded": 0.2345
+        },
+        "biden": {
+          "sentimentpositive": 0.24387000767258638,
+          "sentimentnegative": 0.8041157523878597,
+          "compounded": 0.74345
+        },
+        "sarcasm": 0.13287300237350586
+      },
+      {
+        "hour": 1,
+        "trump": {
+          "sentimentpositive": 0.771901555585216,
+          "sentimentnegative": 0.18434345028497234,
+          "compounded": 0.5445
+        },
+        "biden": {
+          "sentimentpositive": 0.6522873935922533,
+          "sentimentnegative": 0.12991576334335675,
+          "compounded": 0.6145
+        },
+        "sarcasm": 0.44830823502795814
+      },
+      {
+        "hour": 2,
+        "trump": {
+          "sentimentpositive": 0.032687279731064,
+          "sentimentnegative": 0.6632596327629692,
+          "compounded": 0.14545
+        },
+        "biden": {
+          "sentimentpositive": 0.890413793636355,
+          "sentimentnegative": 0.5522952570204531,
+          "compounded": 0.6645
+        },
+        "sarcasm": 0.709757694402577
+      },
+      {
+        "hour": 3,
+        "trump": {
+          "sentimentpositive": 0.28042213468213073,
+          "sentimentnegative": 0.6850069023337508
+        },
+        "biden": {
+          "sentimentpositive": 0.44562698433652126,
+          "sentimentnegative": 0.7484343021733919
+        },
+        "sarcasm": 0.4366730892695023
+      },
+      {
+        "hour": 4,
+        "trump": {
+          "sentimentpositive": 0.4142973757784765,
+          "sentimentnegative": 0.9256954159591597
+        },
+        "biden": {
+          "sentimentpositive": 0.6719181216527041,
+          "sentimentnegative": 0.8897396584087318
+        },
+        "sarcasm": 0.9567898801278407
+      },
+      {
+        "hour": 5,
+        "trump": {
+          "sentimentpositive": 0.1957627399419759,
+          "sentimentnegative": 0.1552790344798558
+        },
+        "biden": {
+          "sentimentpositive": 0.7243509579557086,
+          "sentimentnegative": 0.3527676637602297
+        },
+        "sarcasm": 0.7679740128952621
+      },
+      {
+        "hour": 6,
+        "trump": {
+          "sentimentpositive": 0.8152577457728778,
+          "sentimentnegative": 0.9167401940303204
+        },
+        "biden": {
+          "sentimentpositive": 0.5648987845709879,
+          "sentimentnegative": 0.1514789438239239
+        },
+        "sarcasm": 0.07968192861932732
+      },
+      {
+        "hour": 7,
+        "trump": {
+          "sentimentpositive": 0.9701232387804102,
+          "sentimentnegative": 0.14695307667087731
+        },
+        "biden": {
+          "sentimentpositive": 0.44907155610942784,
+          "sentimentnegative": 0.6685237130450243
+        },
+        "sarcasm": 0.2973764012548088
+      },
+      {
+        "hour": 8,
+        "trump": {
+          "sentimentpositive": 0.3408460262353732,
+          "sentimentnegative": 0.11433946367360992
+        },
+        "biden": {
+          "sentimentpositive": 0.6377733250908577,
+          "sentimentnegative": 0.5901700453240362
+        },
+        "sarcasm": 0.9212930626701166
+      },
+      {
+        "hour": 9,
+        "trump": {
+          "sentimentpositive": 0.4137636508427418,
+          "sentimentnegative": 0.9623028596710759
+        },
+        "biden": {
+          "sentimentpositive": 0.16900591531996834,
+          "sentimentnegative": 0.6137956561461593
+        },
+        "sarcasm": 0.6702338204249292
+      },
+      {
+        "hour": 10,
+        "trump": {
+          "sentimentpositive": 0.5606873651692363,
+          "sentimentnegative": 0.5525713494220246
+        },
+        "biden": {
+          "sentimentpositive": 0.9745857731050269,
+          "sentimentnegative": 0.6938141255308086
+        },
+        "sarcasm": 0.21167999221296907
+      },
+      {
+        "hour": 11,
+        "trump": {
+          "sentimentpositive": 0.3853830243237011,
+          "sentimentnegative": 0.784882501983563
+        },
+        "biden": {
+          "sentimentpositive": 0.12354000907670071,
+          "sentimentnegative": 0.6146893163954734
+        },
+        "sarcasm": 0.0007573966596428061
+      },
+      {
+        "hour": 12,
+        "trump": {
+          "sentimentpositive": 0.9899287687353795,
+          "sentimentnegative": 0.8227156513507434
+        },
+        "biden": {
+          "sentimentpositive": 0.9563462912791676,
+          "sentimentnegative": 0.3290831824396181
+        },
+        "sarcasm": 0.403213279135217
+      },
+      {
+        "hour": 13,
+        "trump": {
+          "sentimentpositive": 0.5396251042452838,
+          "sentimentnegative": 0.03386413054503268
+        },
+        "biden": {
+          "sentimentpositive": 0.26140097338937096,
+          "sentimentnegative": 0.08170698336339588
+        },
+        "sarcasm": 0.7126066711716945
+      },
+      {
+        "hour": 14,
+        "trump": {
+          "sentimentpositive": 0.2555257516430973,
+          "sentimentnegative": 0.40807278395139757
+        },
+        "biden": {
+          "sentimentpositive": 0.13384640317774732,
+          "sentimentnegative": 0.7742551596164642
+        },
+        "sarcasm": 0.2980844255516719
+      },
+      {
+        "hour": 15,
+        "trump": {
+          "sentimentpositive": 0.8875081676094383,
+          "sentimentnegative": 0.5031429334133073
+        },
+        "biden": {
+          "sentimentpositive": 0.05704111854783789,
+          "sentimentnegative": 0.3184172033769843
+        },
+        "sarcasm": 0.7542144629202288
+      },
+      {
+        "hour": 16,
+        "trump": {
+          "sentimentpositive": 0.7029413317530389,
+          "sentimentnegative": 0.3851420366918412
+        },
+        "biden": {
+          "sentimentpositive": 0.2239319897505534,
+          "sentimentnegative": 0.8403348936588941
+        },
+        "sarcasm": 0.698837289671538
+      },
+      {
+        "hour": 17,
+        "trump": {
+          "sentimentpositive": 0.522876464316754,
+          "sentimentnegative": 0.332405866550459
+        },
+        "biden": {
+          "sentimentpositive": 0.781011577420446,
+          "sentimentnegative": 0.14727756025861005
+        },
+        "sarcasm": 0.6291066125564553
+      },
+      {
+        "hour": 18,
+        "trump": {
+          "sentimentpositive": 0.7105491172616978,
+          "sentimentnegative": 0.06726943780514172
+        },
+        "biden": {
+          "sentimentpositive": 0.5096393922697917,
+          "sentimentnegative": 0.09240571869710656
+        },
+        "sarcasm": 0.23203353486126765
+      },
+      {
+        "hour": 19,
+        "trump": {
+          "sentimentpositive": 0.21174991793177145,
+          "sentimentnegative": 0.23892763390867144
+        },
+        "biden": {
+          "sentimentpositive": 0.18816690565853378,
+          "sentimentnegative": 0.7865799424211055
+        },
+        "sarcasm": 0.6935236245324323
+      },
+      {
+        "hour": 20,
+        "trump": {
+          "sentimentpositive": 0.909859299211141,
+          "sentimentnegative": 0.866896822513074
+        },
+        "biden": {
+          "sentimentpositive": 0.6235398721214305,
+          "sentimentnegative": 0.5247810180266339
+        },
+        "sarcasm": 0.9540649530796159
+      },
+      {
+        "hour": 21,
+        "trump": {
+          "sentimentpositive": 0.9817728463761715,
+          "sentimentnegative": 0.7815822657258769
+        },
+        "biden": {
+          "sentimentpositive": 0.32026535305267645,
+          "sentimentnegative": 0.8320097151937402
+        },
+        "sarcasm": 0.0919696600793396
+      },
+      {
+        "hour": 22,
+        "trump": {
+          "sentimentpositive": 0.8725383861833853,
+          "sentimentnegative": 0.432160090365848
+        },
+        "biden": {
+          "sentimentpositive": 0.10632712177860615,
+          "sentimentnegative": 0.7524310273840304
+        },
+        "sarcasm": 0.6936474975135252
+      },
+      {
+        "hour": 23,
+        "trump": {
+          "sentimentpositive": 0.6403668722028608,
+          "sentimentnegative": 0.6376802394898542
+        },
+        "biden": {
+          "sentimentpositive": 0.5505723285871715,
+          "sentimentnegative": 0.2832392022096757
+        },
+        "sarcasm": 0.22231596629405015
+      }
+      
+    ]
+    
+  },
+  {
+    "date": "2020-10-20",
+    "sentiment": [
+      {
+        "hour": 0,
+        "trump": {
+          "sentimentpositive": 0.7537094635639525,
+          "sentimentnegative": 0.08256572347162039,
+          "compounded": 0.7225
+        },
+        "biden": {
+          "sentimentpositive": 0.24387000767258638,
+          "sentimentnegative": 0.8041157523878597,
+          "compounded": 0.44545
+        },
+        "sarcasm": 0.13287300237350586
+      },
+      {
+        "hour": 1,
+        "trump": {
+          "sentimentpositive": 0.771901555585216,
+          "sentimentnegative": 0.18434345028497234,
+          "compounded": 0.69545
+        },
+        "biden": {
+          "sentimentpositive": 0.6522873935922533,
+          "sentimentnegative": 0.12991576334335675,
+          "compounded": 0.2145
+        },
+        "sarcasm": 0.44830823502795814
+      },
+      {
+        "hour": 2,
+        "trump": {
+          "sentimentpositive": 0.032687279731064,
+          "sentimentnegative": 0.6632596327629692,
+          "compounded": 0.595
+        },
+        "biden": {
+          "sentimentpositive": 0.890413793636355,
+          "sentimentnegative": 0.5522952570204531,
+          "compounded": 0.6145
+        },
+        "sarcasm": 0.709757694402577
+      },
+      {
+        "hour": 3,
+        "trump": {
+          "sentimentpositive": 0.28042213468213073,
+          "sentimentnegative": 0.6850069023337508,
+          "compounded": 0.4115
+        },
+        "biden": {
+          "sentimentpositive": 0.44562698433652126,
+          "sentimentnegative": 0.7484343021733919,
+          "compounded": 0.625
+        },
+        "sarcasm": 0.4366730892695023
+      },
+      {
+        "hour": 4,
+        "trump": {
+          "sentimentpositive": 0.4142973757784765,
+          "sentimentnegative": 0.9256954159591597
+        },
+        "biden": {
+          "sentimentpositive": 0.6719181216527041,
+          "sentimentnegative": 0.8897396584087318
+        },
+        "sarcasm": 0.9567898801278407
+      },
+      {
+        "hour": 5,
+        "trump": {
+          "sentimentpositive": 0.1957627399419759,
+          "sentimentnegative": 0.1552790344798558
+        },
+        "biden": {
+          "sentimentpositive": 0.7243509579557086,
+          "sentimentnegative": 0.3527676637602297
+        },
+        "sarcasm": 0.7679740128952621
+      },
+      {
+        "hour": 6,
+        "trump": {
+          "sentimentpositive": 0.8152577457728778,
+          "sentimentnegative": 0.9167401940303204
+        },
+        "biden": {
+          "sentimentpositive": 0.5648987845709879,
+          "sentimentnegative": 0.1514789438239239
+        },
+        "sarcasm": 0.07968192861932732
+      },
+      {
+        "hour": 7,
+        "trump": {
+          "sentimentpositive": 0.9701232387804102,
+          "sentimentnegative": 0.14695307667087731
+        },
+        "biden": {
+          "sentimentpositive": 0.44907155610942784,
+          "sentimentnegative": 0.6685237130450243
+        },
+        "sarcasm": 0.2973764012548088
+      },
+      {
+        "hour": 8,
+        "trump": {
+          "sentimentpositive": 0.3408460262353732,
+          "sentimentnegative": 0.11433946367360992
+        },
+        "biden": {
+          "sentimentpositive": 0.6377733250908577,
+          "sentimentnegative": 0.5901700453240362
+        },
+        "sarcasm": 0.9212930626701166
+      },
+      {
+        "hour": 9,
+        "trump": {
+          "sentimentpositive": 0.4137636508427418,
+          "sentimentnegative": 0.9623028596710759
+        },
+        "biden": {
+          "sentimentpositive": 0.16900591531996834,
+          "sentimentnegative": 0.6137956561461593
+        },
+        "sarcasm": 0.6702338204249292
+      },
+      {
+        "hour": 10,
+        "trump": {
+          "sentimentpositive": 0.5606873651692363,
+          "sentimentnegative": 0.5525713494220246
+        },
+        "biden": {
+          "sentimentpositive": 0.9745857731050269,
+          "sentimentnegative": 0.6938141255308086
+        },
+        "sarcasm": 0.21167999221296907
+      },
+      {
+        "hour": 11,
+        "trump": {
+          "sentimentpositive": 0.3853830243237011,
+          "sentimentnegative": 0.784882501983563
+        },
+        "biden": {
+          "sentimentpositive": 0.12354000907670071,
+          "sentimentnegative": 0.6146893163954734
+        },
+        "sarcasm": 0.0007573966596428061
+      },
+      {
+        "hour": 12,
+        "trump": {
+          "sentimentpositive": 0.9899287687353795,
+          "sentimentnegative": 0.8227156513507434
+        },
+        "biden": {
+          "sentimentpositive": 0.9563462912791676,
+          "sentimentnegative": 0.3290831824396181
+        },
+        "sarcasm": 0.403213279135217
+      },
+      {
+        "hour": 13,
+        "trump": {
+          "sentimentpositive": 0.5396251042452838,
+          "sentimentnegative": 0.03386413054503268
+        },
+        "biden": {
+          "sentimentpositive": 0.26140097338937096,
+          "sentimentnegative": 0.08170698336339588
+        },
+        "sarcasm": 0.7126066711716945
+      },
+      {
+        "hour": 14,
+        "trump": {
+          "sentimentpositive": 0.2555257516430973,
+          "sentimentnegative": 0.40807278395139757
+        },
+        "biden": {
+          "sentimentpositive": 0.13384640317774732,
+          "sentimentnegative": 0.7742551596164642
+        },
+        "sarcasm": 0.2980844255516719
+      },
+      {
+        "hour": 15,
+        "trump": {
+          "sentimentpositive": 0.8875081676094383,
+          "sentimentnegative": 0.5031429334133073
+        },
+        "biden": {
+          "sentimentpositive": 0.05704111854783789,
+          "sentimentnegative": 0.3184172033769843
+        },
+        "sarcasm": 0.7542144629202288
+      },
+      {
+        "hour": 16,
+        "trump": {
+          "sentimentpositive": 0.7029413317530389,
+          "sentimentnegative": 0.3851420366918412
+        },
+        "biden": {
+          "sentimentpositive": 0.2239319897505534,
+          "sentimentnegative": 0.8403348936588941
+        },
+        "sarcasm": 0.698837289671538
+      },
+      {
+        "hour": 17,
+        "trump": {
+          "sentimentpositive": 0.522876464316754,
+          "sentimentnegative": 0.332405866550459
+        },
+        "biden": {
+          "sentimentpositive": 0.781011577420446,
+          "sentimentnegative": 0.14727756025861005
+        },
+        "sarcasm": 0.6291066125564553
+      },
+      {
+        "hour": 18,
+        "trump": {
+          "sentimentpositive": 0.7105491172616978,
+          "sentimentnegative": 0.06726943780514172
+        },
+        "biden": {
+          "sentimentpositive": 0.5096393922697917,
+          "sentimentnegative": 0.09240571869710656
+        },
+        "sarcasm": 0.23203353486126765
+      },
+      {
+        "hour": 19,
+        "trump": {
+          "sentimentpositive": 0.21174991793177145,
+          "sentimentnegative": 0.23892763390867144
+        },
+        "biden": {
+          "sentimentpositive": 0.18816690565853378,
+          "sentimentnegative": 0.7865799424211055
+        },
+        "sarcasm": 0.6935236245324323
+      },
+      {
+        "hour": 20,
+        "trump": {
+          "sentimentpositive": 0.909859299211141,
+          "sentimentnegative": 0.866896822513074
+        },
+        "biden": {
+          "sentimentpositive": 0.6235398721214305,
+          "sentimentnegative": 0.5247810180266339
+        },
+        "sarcasm": 0.9540649530796159
+      },
+      {
+        "hour": 21,
+        "trump": {
+          "sentimentpositive": 0.9817728463761715,
+          "sentimentnegative": 0.7815822657258769
+        },
+        "biden": {
+          "sentimentpositive": 0.32026535305267645,
+          "sentimentnegative": 0.8320097151937402
+        },
+        "sarcasm": 0.0919696600793396
+      },
+      {
+        "hour": 22,
+        "trump": {
+          "sentimentpositive": 0.8725383861833853,
+          "sentimentnegative": 0.432160090365848
+        },
+        "biden": {
+          "sentimentpositive": 0.10632712177860615,
+          "sentimentnegative": 0.7524310273840304
+        },
+        "sarcasm": 0.6936474975135252
+      },
+      {
+        "hour": 23,
+        "trump": {
+          "sentimentpositive": 0.6403668722028608,
+          "sentimentnegative": 0.6376802394898542
+        },
+        "biden": {
+          "sentimentpositive": 0.5505723285871715,
+          "sentimentnegative": 0.2832392022096757
+        },
+        "sarcasm": 0.22231596629405015
+      }
+    ]
+  }
+]

@@ -3,3 +3,9 @@ env/
 .env
 .venv/
 .webTemplate/Nazox_v1.0.0/Admin/Vertical/node_modules
+output/
+**/__pycache__/
+.vscode/
+# Local Netlify folder
+.netlify
+**/node_modules/
