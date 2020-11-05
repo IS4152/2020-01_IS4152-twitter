@@ -2,10 +2,13 @@
 env/
 .env
 .venv/
-webTemplate/
 output/
 **/__pycache__/
 .vscode/
+<<<<<<< HEAD
 
 # Local Netlify folder
 .netlify
+=======
+**/node_modules/
+>>>>>>> b13d0a24bb85885b304b4c65b2ee531916babf54
