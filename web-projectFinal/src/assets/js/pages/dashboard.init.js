@@ -33,7 +33,7 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     fivethirtyeightData = data;
 
     // Fetch another API
-    return fetch('http://138.91.35.252/output/processed.json');
+    return fetch('https://cors-anywhere.herokuapp.com/http://138.91.35.252/output/processed.json', {headers: {'x-requested-with': 'xmlhttprequest'}});
 
 }).then(function (response) {
     if (response.ok) {
