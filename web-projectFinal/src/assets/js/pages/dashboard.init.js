@@ -134,6 +134,7 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
 
             var pData = JSON.parse(sessionStorage.getItem('pollingData'));
             populateWordCloud(pData, newForm);
+            CreateTableFromJSON(pData, newForm);
         }
     });
 
@@ -143,10 +144,13 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     createChart('trumpSentimentChart', trumpCompoundArr, fteTrumpArr, totalDateArr);
     createChart('bidenSentimentChart', bidenCompoundArr, fteBidenArr, totalDateArr);
 
+    CreateTableFromJSON(pollingData, firstDate);
+
 }).catch(function (error) {
     console.warn(error);
 });
 
+// Word cloud populate
 function populateWordCloud(data, date) {
     var t1 = document.getElementById('topic1');
     t1.innerHTML = '';
@@ -190,33 +194,31 @@ function populateWordCloud(data, date) {
 }
 
 
-function CreateTableFromJSON() {
-    var myBooks = [
-        {
-            "Book ID": "1",
-            "Book Name": "Computer Architecture",
-            "Category": "Computers",
-            "Price": "125.60"
-        },
-        {
-            "Book ID": "2",
-            "Book Name": "Asp.Net 4 Blue Book",
-            "Category": "Programming",
-            "Price": "56.00"
-        },
-        {
-            "Book ID": "3",
-            "Book Name": "Popular Science",
-            "Category": "Science",
-            "Price": "210.40"
+function CreateTableFromJSON(data, date) {
+    var tweetsDisplay = [];
+    var filter;
+    for (d in data) {
+        if (data[d]['date'] == date) {
+            filter = data[d]['tweets'];
         }
-    ]
+    }
+
+    for (f in filter) {
+        dict = {
+            'Text': filter[f]['text'],
+            'Username': filter[f]['user_name'],
+            'Sarcasm Value': filter[f]['sarcasm_value']
+        }
+
+        tweetsDisplay.push(dict);
+    }
+
 
     // EXTRACT VALUE FOR HTML HEADER. 
     // ('Book ID', 'Book Name', 'Category' and 'Price')
     var col = [];
-    for (var i = 0; i < myBooks.length; i++) {
-        for (var key in myBooks[i]) {
+    for (var i = 0; i < tweetsDisplay.length; i++) {
+        for (var key in tweetsDisplay[i]) {
             if (col.indexOf(key) === -1) {
                 col.push(key);
             }
@@ -225,11 +227,13 @@ function CreateTableFromJSON() {
 
     // CREATE DYNAMIC TABLE.
     var table = document.createElement("table");
+    table.setAttribute('class', "table table-centered datatable dt-responsive nowrap");
+    table.setAttribute('style', "border-collapse: collapse; border-spacing: 0; width: 100%;");
 
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
 
     var tr = table.insertRow(-1);                   // TABLE ROW.
-
+    tr.setAttribute('class', 'thead-light');
     for (var i = 0; i < col.length; i++) {
         var th = document.createElement("th");      // TABLE HEADER.
         th.innerHTML = col[i];
@@ -237,18 +241,40 @@ function CreateTableFromJSON() {
     }
 
     // ADD JSON DATA TO THE TABLE AS ROWS.
-    for (var i = 0; i < myBooks.length; i++) {
+    for (var i = 0; i < tweetsDisplay.length; i++) {
 
         tr = table.insertRow(-1);
 
         for (var j = 0; j < col.length; j++) {
             var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = myBooks[i][col[j]];
+            tabCell.innerHTML = tweetsDisplay[i][col[j]];
         }
     }
 
+    var months = {
+        '01': 'January',
+        '02': 'February',
+        '03': 'March',
+        '04': 'April',
+        '05': 'May',
+        '06': 'June',
+        '07': 'July',
+        '08': 'August',
+        '09': 'September',
+        '10': 'October',
+        '11': 'November',
+        '12': 'December'
+    }
+    dateArr = date.split('-');
+    day = dateArr[2];
+    month = months[dateArr[1]];
+    year = dateArr[0];
+    newForm = day + '-' + month + '-' + year;
     // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-    var divContainer = document.getElementById("showData");
+    var tweetsTableTitle = document.getElementById('tweetsTableTitle');
+    tweetsTableTitle.innerHTML = '';
+    tweetsTableTitle.innerHTML = "Tweets Table " + newForm;
+    var divContainer = document.getElementById("tweetTable");
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
 } // Works
