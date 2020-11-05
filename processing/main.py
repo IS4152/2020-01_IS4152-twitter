@@ -40,9 +40,10 @@ def main():
     logger.info('start ' + datetime.now().isoformat())
     data_dir = environ.get('DATA_DIR', '/home/dc/IS4152-twitter/data')
     output_dir = environ.get('OUTPUT_DIR', '/home/dc/IS4152-twitter/output')
-    output_path = path.join(output_dir, 'processed.json')
+    output_processed_path = path.join(output_dir, 'processed.json')
+    output_correlation_path = path.join(output_dir, 'correlation.json')
     yesterday = (date.today() - timedelta(days=1)).isoformat()
-    #yesterday = '2020-10-24'
+    # yesterday = '2020-10-24'
     print('processing ' + yesterday)
     logger.info('processing ' + yesterday)
     output_yesterday_dir = path.join(output_dir, yesterday)
@@ -60,15 +61,15 @@ def main():
     topics_word_freq = topic_model(tweets, output_yesterday_dir)
     output_json = []
 
-    random_tweets = df.sample(10).replace({np.nan: None}).to_dict('records')
-
     #process the tweets
     processed = process_tweets(tweets)
-    df['tweets'] = processed
+    df['processed_text'] = processed
 
     df = score_tweets(df)
     df = separate_scores(df)
     df = label_candidates(df)
+
+    random_tweets = df.sample(10).replace({np.nan: None}).to_dict('records')
 
     #creating individual df
     trump_df = df[df['candidate']=='Trump']
@@ -103,7 +104,7 @@ def main():
         sentiment.append(combined)
 
     try:
-        with open(output_path, 'r') as output_file:
+        with open(output_processed_path, 'r') as output_file:
             output_json = json.load(output_file)
     except Exception as e:
         logger.error(e)
@@ -117,15 +118,22 @@ def main():
     output_yesterday['tweets'] = random_tweets
     output_json.sort(key=lambda x: x['date'])
     try:
-        with open(output_path, 'w') as output_file:
+        with open(output_processed_path, 'w') as output_file:
             # update output json
             json.dump(output_json, output_file, cls=NumpyEncoder, separators=(',', ':'))
     except Exception as e:
         logger.error(e)
+    # run correlation script after saving processed json
+    correlation_result = correlation(output_processed_path)
+    with open(output_correlation_path, 'w') as output_file:
+        json.dump(correlation_result, output_file, separators=(',', ':'))
+
     logger.info('end ' + datetime.now().isoformat())
 
 if __name__ == '__main__':
     try:
+        # for date in ['2020-10-19', '2020-10-20', '2020-10-21', '2020-10-22', '2020-10-23', '2020-10-24', '2020-10-25', '2020-10-26', '2020-10-27', '2020-10-28', '2020-10-29', '2020-10-30', '2020-10-31', '2020-11-01', '2020-11-02', '2020-11-03', '2020-11-04']:
+        #     main(date)
         main()
     except Exception as e:
         logger.error('GLOBAL EXCEPTION')

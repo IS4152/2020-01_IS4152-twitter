@@ -30,7 +30,7 @@ def score_tweets(df):
     sa = SentimentIntensityAnalyzer()
     scores=[]
     for i in range(df.shape[0]):
-        scores.append(sa.polarity_scores(df.iloc[i]['tweets']))
+        scores.append(sa.polarity_scores(df.iloc[i]['processed_text']))
     df['polarity_scores'] = scores
     return df
 
