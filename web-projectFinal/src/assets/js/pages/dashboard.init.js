@@ -98,15 +98,81 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
         }
     }
 
-    curTopics = pollingData[0]['topics'];
+    firstDate = pollingData[0]['date'];
+    lastDate = pollingData[pollingData.length - 1]['date'];
+    firstDateArr = firstDate.split('-');
+    lastDateArr = lastDate.split('-');
+
+    $("#dateRange").ionRangeSlider({
+        skin: "big",
+        type: "single",
+        grid: true,
+        min: dateToTS(new Date(firstDateArr[0], firstDateArr[1] - 1, firstDateArr[2])),
+        max: dateToTS(new Date(lastDateArr[0], lastDateArr[1] - 1, lastDateArr[2])),
+        from: dateToTS(new Date(firstDateArr[0], firstDateArr[1] - 1, firstDateArr[2])),
+        prettify: tsToDate,
+        onFinish: function (data) {
+            var months = {
+                'January': '01',
+                'February': '02',
+                'March': '03',
+                'April': '04',
+                'May': '05',
+                'June': '06',
+                'July': '07',
+                'August': '08',
+                'September': '09',
+                'October': '10',
+                'November': '11',
+                'December': '12'
+            }
+            dateArr = data.from_pretty.split(' ');
+            day = dateArr[1].substring(0, 2);
+            month = months[dateArr[0]];
+            year = dateArr[2];
+            newForm = year + '-' + month + '-' + day;
+
+            var pData = JSON.parse(sessionStorage.getItem('pollingData'));
+            populateWordCloud(pData, newForm);
+        }
+    });
+
+    sessionStorage.setItem('pollingData', JSON.stringify(pollingData));
+
+    populateWordCloud(pollingData, pollingData[0]['date']);
+    createChart('trumpSentimentChart', trumpCompoundArr, fteTrumpArr, totalDateArr);
+    createChart('bidenSentimentChart', bidenCompoundArr, fteBidenArr, totalDateArr);
+
+}).catch(function (error) {
+    console.warn(error);
+});
+
+function populateWordCloud(data, date) {
+    var t1 = document.getElementById('topic1');
+    t1.innerHTML = '';
+    var t2 = document.getElementById('topic2');
+    t2.innerHTML = '';
+    var t3 = document.getElementById('topic3');
+    t3.innerHTML = '';
+    var t4 = document.getElementById('topic4');
+    t4.innerHTML = '';
+    var t5 = document.getElementById('topic5');
+    t5.innerHTML = '';
+
+
+    var curTopics;
+
+    for (d in data) {
+        if (data[d]['date'] == date) {
+            curTopics = data[d]['topics'];
+        }
+    }
 
     var topicsWordArr = [];
 
     for (cT in curTopics) {
         var item = curTopics[cT];
         for (words in item) {
-            console.log(words);
-            console.log(item[words]);
 
             topicsWordArr.push(
                 {
@@ -118,17 +184,10 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
 
 
         }
-        createWordCloud(topicsWordArr, 1);
+        createWordCloud(topicsWordArr, (parseInt(cT) + 1));
 
     }
-
-    createChart('trumpSentimentChart', trumpCompoundArr, fteTrumpArr, totalDateArr);
-    createChart('bidenSentimentChart', bidenCompoundArr, fteBidenArr, totalDateArr);
-
-}).catch(function (error) {
-    console.warn(error);
-});
-
+}
 
 
 function CreateTableFromJSON() {
@@ -196,12 +255,11 @@ function CreateTableFromJSON() {
 
 function createWordCloud(data, number) {
 
-
     // create a tag (word) cloud chart
     var chart = anychart.tagCloud(data);
 
     // set a chart title
-    chart.title('15 most spoken languages')
+    chart.title('Topic' + number)
     // set an array of angles at which the words will be laid out
     chart.angles([0])
     // enable a color range
@@ -278,3 +336,20 @@ function createChart(chartID, X1, X2, Y) {
 
     chart.render();
 }
+
+var lang = "en-US";
+
+function dateToTS(date) {
+    return date.valueOf();
+}
+
+function tsToDate(ts) {
+    var d = new Date(ts);
+
+    return d.toLocaleDateString(lang, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+}
+

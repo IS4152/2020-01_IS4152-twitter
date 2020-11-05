@@ -33,6 +33,7 @@
     "dependencies": {
         "@curiosityx/bootstrap-session-timeout": "^1.0.0",
         "admin-resources": "git+https://github.com/themesbrand/admin-resources#master",
+        "anychart": "^8.9.0",
         "apexcharts": "3.19.0",
         "bootstrap": "4.5.0",
         "bootstrap-colorpicker": "^3.2.0",
