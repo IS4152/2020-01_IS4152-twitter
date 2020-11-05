@@ -10,7 +10,7 @@ import pandas as pd
 import json
 import numpy as np
 from scipy.stats import pearsonr
-def correlation():
+def correlation(processed_json_path):
     #@input: the processed json file
     #@output: the correlation coeefficient r for each candidate and the p score to show if it is significant
 
@@ -25,12 +25,10 @@ def correlation():
     df_b['date'] = pd.to_datetime(df_b['date'])
 
     # loading the processed json file with sentiment score
-    with open('../data/processed.json') as f: #insert the directory of the processed file
-        processed = json.load(f)
-    processed = pd.read_json('../data/processed.json')
+    processed = pd.read_json(processed_json_path)
     date_score = pd.DataFrame(columns=['date','t_compounded','b_compounded'])
     for i in range(len(processed)):
-        tmp = pd.json_normalize(processed['sentiment'][i])
+        tmp = pd.json_normalize(processed['sentiments'][i])
         t_score = tmp['trump.compounded'].mean()
         b_score = tmp['biden.compounded'].mean()
         date_score = date_score.append({'date': processed['date'][i],'t_compounded':t_score,'b_compounded':b_score},ignore_index=True)
@@ -41,7 +39,7 @@ def correlation():
     b_r,b_p =  pearsonr(date_score['b_compounded'],date_score['b_pct'])
     print(f'pearson correlation coefficient is {t_r} and the p-value is {t_p} ')
     print(f'pearson correlation coefficient is {b_r} and the p-value is {b_p} ')
-
+    return { 'trump_r': t_r, 'trump_p': t_p, 'biden_r': b_r, 'biden_p': b_p }
 
 
 
