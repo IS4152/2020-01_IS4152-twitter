@@ -49,6 +49,12 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     fteBidenArr = [];
     fteTrumpArr = [];
 
+    bidenPositiveArr = [];
+    bidenNegativeArr = [];
+
+    trumpPositiveArr = [];
+    trumpNegativeArr = [];
+
     bidenCompoundArr = [];
     trumpCompoundArr = [];
     // ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00", "2018-09-19T04:30:00", "2018-09-19T05:30:00", "2018-09-19T06:30:00"]
@@ -88,12 +94,24 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
                     totalDateArr.push(curDate + 'T' + curS['hour'] + ':00:00');
                 }
 
-                bidenCompoundArr.push(Math.trunc(curS['biden']['compounded'].toFixed(2) * 100));
-                trumpCompoundArr.push(Math.trunc(curS['trump']['compounded'].toFixed(2) * 100));
 
+                bidenCompoundArr.push(curS['biden']['compounded'].toFixed(2));
+                trumpCompoundArr.push(curS['trump']['compounded'].toFixed(2));
+
+                bidenPositiveArr.push(curS['biden']['positive'].toFixed(2));
+                bidenNegativeArr.push(curS['biden']['negative'].toFixed(2));
+
+                trumpPositiveArr.push(curS['trump']['positive'].toFixed(2));
+                trumpNegativeArr.push(curS['trump']['negative'].toFixed(2));
             } catch (err) {
                 bidenCompoundArr.push(0);
                 trumpCompoundArr.push(0);
+
+                bidenPositiveArr.push(0);
+                bidenNegativeArr.push(0);
+
+                trumpPositiveArr.push(0);
+                trumpNegativeArr.push(0);
             }
         }
     }
@@ -149,6 +167,10 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     createChart('bidenSentimentChart', bidenCompoundArr, fteBidenArr, totalDateArr);
 
     CreateTableFromJSON(pollingData, firstDate);
+
+
+    createSentiChart('trumpPosNegChart', trumpPositiveArr, trumpNegativeArr, totalDateArr);
+    createSentiChart('bidenPosNegChart', bidenPositiveArr, bidenNegativeArr, totalDateArr);
 
 }).catch(function (error) {
     console.warn(error);
@@ -426,7 +448,116 @@ function createChart(chartID, X1, X2, Y) {
         },
         legend: {
             offsetY: 7
+        },
+        annotations: {
+            xaxis: [
+                {
+                    x: new Date('3 Nov 2020 00:00:00').getTime(),
+                    borderColor: '#775DD0',
+                    label: {
+                        style: {
+                            color: '#fff',
+                        },
+                        text: 'Election day - 3 Nov'
+                    }
+                }
+            ]
         }
+    }
+
+    var chart = new ApexCharts(
+        document.querySelector('#' + chartID),
+        options
+    );
+
+    chart.render();
+}
+
+function createSentiChart(chartID, X1, X2, Y) {
+
+    var options = {
+        chart: {
+            height: 350,
+            zoom: {
+                enabled: true
+            },
+            toolbar: {
+                show: true
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3,
+        },
+        series: [{
+            name: 'Positive Sentiment',
+            type: 'line',
+            data: X1
+        }, {
+            name: 'Negative Sentiment',
+            type: 'line',
+            data: X2
+        }],
+        colors: ['#00E396', '#FEB019'],
+        xaxis: {
+            type: 'datetime',
+            categories: Y,
+        },
+        yaxis: [
+            {
+                seriesName: 'Tweet Sentiment',
+                axisTicks: {
+                    show: true,
+                },
+                axisBorder: {
+                    show: true,
+                    color: '#00E396'
+                },
+                labels: {
+                    style: {
+                        colors: '#00E396',
+                    }
+                },
+                title: {
+                    text: "Tweet sentiments",
+                    style: {
+                        color: '#00E396',
+                    }
+                },
+            },
+        ],
+        grid: {
+            borderColor: '#f1f1f1',
+            padding: {
+                bottom: 15
+            }
+        },
+        tooltip: {
+            x: {
+                format: 'dd/MM/yy HH:mm'
+            },
+        },
+        legend: {
+            offsetY: 7
+        },
+        annotations: {
+            xaxis: [
+                {
+                    x: new Date('3 Nov 2020 00:00:00').getTime(),
+                    borderColor: '#775DD0',
+                    label: {
+                        style: {
+                            color: '#fff',
+                        },
+                        text: 'Election day - 3 Nov'
+                    }
+                }
+            ]
+        }
+
     }
 
     var chart = new ApexCharts(
