@@ -43,87 +43,88 @@
 
             <div class="page-content">
                 <div class="container-fluid">
-
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Donald Trump Sentiments</h4>
 
-                                    <div id="trumpSentimentChart" class="apex-charts" dir="ltr"></div>
+                                    <h4 class="card-title">Donald Trump p and r values</h4>
+                                    <p class="card-title-desc">Trump's polling values are positively correlated to
+                                        our Twitter's sentiments.
+                                    </p>
+
+                                    <div class="col-lg-6">
+                                        <div class="alert alert-primary" role="alert" id="trumpPValue">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="alert alert-success" role="alert" id="trumpRValue">
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                            <!--end card-->
                         </div>
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Joe Biden Sentiments</h4>
 
-                                    <div id="bidenSentimentChart" class="apex-charts" dir="ltr"></div>
+                                    <h4 class="card-title">Joe Biden p and r values</h4>
+                                    <p class="card-title-desc">Biden's polling values are negatively correlated to
+                                        our Twitter's sentiments.
+                                    </p>
+
+                                    <div class="col-lg-6">
+                                        <div class="alert alert-primary" role="alert" id="bidenPValue">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="alert alert-success" role="alert" id="bidenRValue">
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                            <!--end card-->
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="p-3">
-                                        <h5 class="font-size-14 mb-3">Testing</h5>
-                                        <input type="text" id="dateRange">
-                                    </div>
-                                </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Donald Trump Sentiments</h4>
+
+                                <div id="trumpSentimentChart" class="apex-charts" dir="ltr"></div>
                             </div>
                         </div>
+                        <!--end card-->
                     </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Joe Biden Sentiments</h4>
 
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card">
+                                <div id="bidenSentimentChart" class="apex-charts" dir="ltr"></div>
+                            </div>
+                        </div>
+                        <!--end card-->
+                    </div>
+                </div>
 
-                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
-                                        </li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                                    </ol>
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active" id='topic1'
-                                            style="height:400px;width:100%;margin: 0;padding: 0;">
-
-                                        </div>
-                                        <div class="carousel-item" id='topic2'
-                                            style="height:400px;width:100%;margin: 0;padding: 0;">
-
-                                        </div>
-                                        <div class="carousel-item" id='topic3'
-                                            style="height:400px;width:100%;margin: 0;padding: 0;">
-                                        </div>
-                                        <div class="carousel-item" id='topic4'
-                                            style="height:400px;width:100%;margin: 0;padding: 0;">
-                                        </div>
-                                        <div class="carousel-item" id='topic5'
-                                            style="height:400px;width:100%;margin: 0;padding: 0;">
-                                        </div>
-
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                                        data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                                        data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="p-3">
+                                    <h5 class="font-size-14 mb-3">Testing</h5>
+                                    <input type="text" id="dateRange">
                                 </div>
                             </div>
                         </div>
@@ -131,7 +132,53 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                        <div class="card">
+
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                                    </li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                                </ol>
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active" id='topic1'
+                                        style="height:400px;width:100%;margin: 0;padding: 0;">
+
+                                    </div>
+                                    <div class="carousel-item" id='topic2'
+                                        style="height:400px;width:100%;margin: 0;padding: 0;">
+
+                                    </div>
+                                    <div class="carousel-item" id='topic3'
+                                        style="height:400px;width:100%;margin: 0;padding: 0;">
+                                    </div>
+                                    <div class="carousel-item" id='topic4'
+                                        style="height:400px;width:100%;margin: 0;padding: 0;">
+                                    </div>
+                                    <div class="carousel-item" id='topic5'
+                                        style="height:400px;width:100%;margin: 0;padding: 0;">
+                                    </div>
+
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class='card-title mb-4' id="tweetsTableTitle">Tweets table</h4>
@@ -142,15 +189,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row">
+
+            </div>
 
 
-                <!-- end row -->
+            <!-- end row -->
 
-            </div> <!-- container-fluid -->
-        </div>
-        <!-- End Page-content -->
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
 
-        @@include("partials/footer.html")
+    @@include("partials/footer.html")
     </div>
     <!-- end main content-->
 
@@ -181,8 +233,6 @@
     <!-- Ion Range Slider-->
     <script src="assets/libs/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
 
-    <!-- Range slider init js-->
-    <script src="assets/js/pages/range-sliders.init.js"></script>
 
     <script src="assets/js/app.js"></script>
 

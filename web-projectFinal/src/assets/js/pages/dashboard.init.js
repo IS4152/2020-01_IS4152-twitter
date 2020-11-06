@@ -33,7 +33,7 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     fivethirtyeightData = data;
 
     // Fetch another API
-    return fetch('https://cors-anywhere.herokuapp.com/http://138.91.35.252/output/processed.json', {headers: {'x-requested-with': 'xmlhttprequest'}});
+    return fetch('https://cors-anywhere.herokuapp.com/http://138.91.35.252/output/processed.json', { headers: { 'x-requested-with': 'xmlhttprequest' } });
 
 }).then(function (response) {
     if (response.ok) {
@@ -88,12 +88,12 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
                     totalDateArr.push(curDate + 'T' + curS['hour'] + ':00:00');
                 }
 
-                bidenCompoundArr.push(50 + Math.trunc(curS['biden']['compounded'].toFixed(2) * 100));
-                trumpCompoundArr.push(50 + Math.trunc(curS['trump']['compounded'].toFixed(2) * 100));
+                bidenCompoundArr.push(Math.trunc(curS['biden']['compounded'].toFixed(2) * 100));
+                trumpCompoundArr.push(Math.trunc(curS['trump']['compounded'].toFixed(2) * 100));
 
             } catch (err) {
-                bidenCompoundArr.push(50);
-                trumpCompoundArr.push(50);
+                bidenCompoundArr.push(0);
+                trumpCompoundArr.push(0);
             }
         }
     }
@@ -128,6 +128,10 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
             }
             dateArr = data.from_pretty.split(' ');
             day = dateArr[1].substring(0, 2);
+            if (day.substr(-1) == ',') {
+                day = '0' + day.substr(0, 1);
+            }
+            console.log(day);
             month = months[dateArr[0]];
             year = dateArr[2];
             newForm = year + '-' + month + '-' + day;
@@ -148,6 +152,33 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
 
 }).catch(function (error) {
     console.warn(error);
+});
+
+
+var prData;
+// Call the API
+fetch('https://cors-anywhere.herokuapp.com/http://138.91.35.252/output/correlation.json', { headers: { 'x-requested-with': 'xmlhttprequest' } }).then(function (response) {
+    if (response.ok) {
+        return response.json();
+    } else {
+        return Promise.reject(response);
+    }
+}).then(function (data) {
+
+    // Store the post data to a variable
+    prData = data;
+
+    var tP = document.getElementById('trumpPValue');
+    var tR = document.getElementById('trumpRValue');
+
+    var bP = document.getElementById('bidenPValue');
+    var bR = document.getElementById('bidenRValue');
+
+    tP.innerHTML = "Trump P Value: " + prData['trump_p'];
+    tR.innerHTML = "Trump R Value: " + prData['trump_r'];
+    bP.innerHTML = "Biden P Value: " + prData['biden_p'];
+    bR.innerHTML = "Biden R Value: " + prData['biden_r'];
+
 });
 
 // Word cloud populate
@@ -205,9 +236,13 @@ function CreateTableFromJSON(data, date) {
 
     for (f in filter) {
         dict = {
-            'Text': filter[f]['text'],
-            'Username': filter[f]['user_name'],
-            'Sarcasm Value': filter[f]['sarcasm_value']
+            'Tweet': filter[f]['text'],
+            'Processed Tweet': filter[f]['processed_text'],
+            'Compounded Sentiment': filter[f]['compounded'],
+            'Positive Sentiment': filter[f]['positive'],
+            'Neutral Sentiment': filter[f]['neutral'],
+            'Negative Sentiment': filter[f]['negative'],
+            'Sarcasm Value': filter[f]['sarcasm_value'],
         }
 
         tweetsDisplay.push(dict);
@@ -305,7 +340,6 @@ function createChart(chartID, X1, X2, Y) {
     var options = {
         chart: {
             height: 350,
-            type: 'line',
             zoom: {
                 enabled: true
             },
@@ -322,23 +356,63 @@ function createChart(chartID, X1, X2, Y) {
         },
         series: [{
             name: 'Tweet Sentiment',
+            type: 'line',
             data: X1
         }, {
             name: 'Five Thirty Eight',
+            type: 'line',
             data: X2
         }],
-        colors: ['#5664d2', '#1cbb8c'],
+        colors: ['#00E396', '#FEB019'],
         xaxis: {
             type: 'datetime',
             categories: Y,
         },
-        yaxis: {
-            title: {
-                text: 'sentiment'
+        yaxis: [
+            {
+                seriesName: 'Tweet Sentiment',
+                axisTicks: {
+                    show: true,
+                },
+                axisBorder: {
+                    show: true,
+                    color: '#00E396'
+                },
+                labels: {
+                    style: {
+                        colors: '#00E396',
+                    }
+                },
+                title: {
+                    text: "Tweet sentiments",
+                    style: {
+                        color: '#00E396',
+                    }
+                },
             },
-            min: 0,
-            max: 100
-        },
+            {
+                seriesName: 'Five Thirty Eight',
+                opposite: true,
+                axisTicks: {
+                    show: true,
+                },
+                axisBorder: {
+                    show: true,
+                    color: '#FEB019'
+                },
+                labels: {
+                    style: {
+                        colors: '#FEB019',
+                    },
+                },
+                title: {
+                    text: "Revenue (thousand crores)",
+                    style: {
+                        color: '#FEB019',
+                    }
+                }
+            },
+        ],
         grid: {
             borderColor: '#f1f1f1',
             padding: {
