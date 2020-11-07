@@ -49,7 +49,7 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class='container'>
-                        <h1 style="color:black;">Sentiment analysis US elections 2020</h1>
+                        <h1 style="color:black;">Public Sentiments towards US Presidential Election 2020</h1>
                     </div>
 
 
@@ -69,9 +69,15 @@
                     <div class="row">
                         <div class="col-lg-12">
 
+                            <div >
+                                <div >
+                                    <h3 class="card-title mb-4">Part 1: Public sentiments towards Trump and Biden on Twitter</h3>
+                                </div>
+                            </div>
+
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Trump vs Biden Sentiments</h4>
+                                    <h4 class="card-title mb-4">Overall Public Sentiments towards Trump vs Biden on Twitter</h4>
 
                                     <div id="trumpBidenSentimentChart" class="apex-charts" dir="ltr"></div>
                                 </div>
@@ -80,89 +86,17 @@
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
 
-                                    <h4 class="card-title">Donald Trump p and r values</h4>
-                                    <p class="card-title-desc">Trump's polling values are positively correlated to
-                                        our Twitter's sentiments.
-                                    </p>
-
-                                    <div class="col-lg-6">
-                                        <div class="alert alert-primary" role="alert" id="trumpPValue">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="alert alert-success" role="alert" id="trumpRValue">
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-
-                                    <h4 class="card-title">Joe Biden p and r values</h4>
-                                    <p class="card-title-desc">Biden's polling values are negatively correlated to
-                                        our Twitter's sentiments.
-                                    </p>
-
-                                    <div class="col-lg-6">
-                                        <div class="alert alert-primary" role="alert" id="bidenPValue">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="alert alert-success" role="alert" id="bidenRValue">
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- end col -->
 
                     <div class="row">
                         <div class="col-lg-6">
 
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Trump Sentiments vs FiveThirtyEight</h4>
-
-                                    <div id="trumpSentimentChart" class="apex-charts" dir="ltr"></div>
-                                </div>
-                            </div>
-                            <!--end card-->
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-4">Biden Sentiments vs FiveThirtyEight</h4>
-
-                                    <div id="bidenSentimentChart" class="apex-charts" dir="ltr"></div>
-                                </div>
-                            </div>
-                            <!--end card-->
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-4">Donald Trump Sentiments</h4>
+                                    <h4 class="card-title mb-4">Positive vs Negative Sentiments towards Trump on Twitter</h4>
 
                                     <div id="trumpPosNegChart" class="apex-charts" dir="ltr"></div>
+                                    
                                 </div>
                             </div>
                             <!--end card-->
@@ -170,7 +104,7 @@
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Joe Biden Sentiments</h4>
+                                    <h4 class="card-title mb-4">Positive vs Negative Sentiments towards Biden on Twitter</h4>
 
                                     <div id="bidenPosNegChart" class="apex-charts" dir="ltr"></div>
                                 </div>
@@ -179,18 +113,99 @@
                         </div>
                     </div>
 
+                    <div >
+                        <div >
+                            <h3 class="card-title mb-4">Part 2: Public sentiments towards Trump and Biden on Twitter vs Public Opinion Polling Website, <a href="https://projects.fivethirtyeight.com/polls/" title="Essentially, the usual approach to gather public opinions is done by multiple pollsters thru different methods such as phone calls, online surveys etc. FiveThirtyEight is an aggregator for all these pollsters. You may click here to know more about FiveThirtyEight."> FiveThirtyEight </a></h3>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Public Sentiments towards Trump: Twitter vs FiveThirtyEight</h4>
+
+                                    <div id="trumpSentimentChart" class="apex-charts" dir="ltr"></div>
+
+                                    <div class="card-body">
+
+ 
+                                        <p class="card-title-desc">Sentiments on opinion polling website is positively correlated to
+                                            our Twitter's sentiments.
+                                        </p>
+    
+                                        <div class="col-lg-10">
+                                            <div class="alert alert-primary" role="alert" id="trumpPValue">
+    
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="alert alert-success" role="alert" id="trumpRValue">
+    
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Public Sentiments towards Biden: Twitter vs FiveThirtyEight</h4>
+
+                                    <div id="bidenSentimentChart" class="apex-charts" dir="ltr"></div>
+
+                                    <div class="card-body">
+
+ 
+                                        <p class="card-title-desc">Sentiments on opinion polling website is negatively correlated to
+                                            our Twitter's sentiments.
+                                        </p>
+    
+                                        <div class="col-lg-10">
+                                            <div class="alert alert-primary" role="alert" id="bidenPValue">
+    
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="alert alert-success" role="alert" id="bidenRValue">
+    
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!--end card-->
+                        </div>
+                    </div>
+
+                    <div >
+                        <div >
+                            <h3 class="card-title mb-4">Part 3: Topics of the Day & Tweets of the Day</h3>
+                        </div>
+                    </div>
+                    
+
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="p-3">
-                                        <h5 class="font-size-14 mb-3">Sample tweets and main topics date modifier</h5>
+                                        <h5 class="font-size-14 mb-3">You may slide to choose your preferred date</h5>
                                         <input type="text" id="dateRange">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
 
                     <div class="row">
                         <div class="col-lg-6">
