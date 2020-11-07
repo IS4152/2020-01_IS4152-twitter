@@ -171,7 +171,7 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
 
     createSentiChart('trumpPosNegChart', trumpPositiveArr, trumpNegativeArr, totalDateArr);
     createSentiChart('bidenPosNegChart', bidenPositiveArr, bidenNegativeArr, totalDateArr);
-
+    createTrumpVBidenChart("trumpBidenSentimentChart", trumpCompoundArr, bidenCompoundArr, totalDateArr);
 }).catch(function (error) {
     console.warn(error);
 });
@@ -567,6 +567,103 @@ function createSentiChart(chartID, X1, X2, Y) {
 
     chart.render();
 }
+
+function createTrumpVBidenChart(chartID, X1, X2, Y) {
+
+    var options = {
+        chart: {
+            height: 350,
+            zoom: {
+                enabled: true
+            },
+            toolbar: {
+                show: true
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3,
+        },
+        series: [{
+            name: 'Trump Compound Sentiment',
+            type: 'line',
+            data: X1
+        }, {
+            name: 'Biden Compound Sentiment',
+            type: 'line',
+            data: X2
+        }],
+        colors: ['#00E396', '#FEB019'],
+        xaxis: {
+            type: 'datetime',
+            categories: Y,
+        },
+        yaxis: [
+            {
+                seriesName: 'Tweet Sentiment',
+                axisTicks: {
+                    show: true,
+                },
+                axisBorder: {
+                    show: true,
+                    color: '#00E396'
+                },
+                labels: {
+                    style: {
+                        colors: '#00E396',
+                    }
+                },
+                title: {
+                    text: "Tweet sentiments",
+                    style: {
+                        color: '#00E396',
+                    }
+                },
+            },
+        ],
+        grid: {
+            borderColor: '#f1f1f1',
+            padding: {
+                bottom: 15
+            }
+        },
+        tooltip: {
+            x: {
+                format: 'dd/MM/yy HH:mm'
+            },
+        },
+        legend: {
+            offsetY: 7
+        },
+        annotations: {
+            xaxis: [
+                {
+                    x: new Date('3 Nov 2020 00:00:00').getTime(),
+                    borderColor: '#775DD0',
+                    label: {
+                        style: {
+                            color: '#fff',
+                        },
+                        text: 'Election day - 3 Nov'
+                    }
+                }
+            ]
+        }
+
+    }
+
+    var chart = new ApexCharts(
+        document.querySelector('#' + chartID),
+        options
+    );
+
+    chart.render();
+}
+
+
 
 var lang = "en-US";
 
