@@ -260,7 +260,7 @@ function CreateTableFromJSON(data, date) {
         dict = {
             'Tweet': filter[f]['text'],
             // 'Processed Tweet': filter[f]['processed_text'],
-            'Compounded Sentiment': filter[f]['compounded'],
+            'Overall Sentiment': filter[f]['compounded'],
             'Positive Sentiment': filter[f]['positive'],
             'Neutral Sentiment': filter[f]['neutral'],
             'Negative Sentiment': filter[f]['negative'],
@@ -388,7 +388,7 @@ function createChart(chartID, X1, X2, Y) {
             type: 'line',
             data: X2
         }],
-        colors: ['#00E396', '#FEB019'],
+        colors: ['#00ACEE', '#E07B39'],
         xaxis: {
             type: 'datetime',
             categories: Y,
@@ -401,7 +401,7 @@ function createChart(chartID, X1, X2, Y) {
                 },
                 axisBorder: {
                     show: true,
-                    color: '#00E396'
+                    color: '#00ACEE'
                 },
                 labels: {
                     style: {
@@ -416,14 +416,14 @@ function createChart(chartID, X1, X2, Y) {
                 },
             },
             {
-                seriesName: 'Five Thirty Eight',
+                seriesName: 'FiveThirtyEight',
                 opposite: true,
                 axisTicks: {
                     show: true,
                 },
                 axisBorder: {
                     show: true,
-                    color: '#FEB019'
+                    color: '#E07B39'
                 },
                 labels: {
                     style: {
@@ -431,7 +431,7 @@ function createChart(chartID, X1, X2, Y) {
                     },
                 },
                 title: {
-                    text: "Revenue (thousand crores)",
+                    text: "FiveThirtyEight Sentiment",
                     style: {
                         color: '#FEB019',
                     }
@@ -621,7 +621,7 @@ function createTrumpVBidenChart(chartID, X1, X2, Y) {
             type: 'line',
             data: X2
         }],
-        colors: ['#00E396', '#FEB019'],
+        colors: ['#CA1504', '#000E89'],
         xaxis: {
             type: 'datetime',
             categories: Y,
@@ -634,7 +634,7 @@ function createTrumpVBidenChart(chartID, X1, X2, Y) {
                 },
                 axisBorder: {
                     show: true,
-                    color: '#00E396'
+                    color: '#000000'
                 },
                 labels: {
                     style: {
