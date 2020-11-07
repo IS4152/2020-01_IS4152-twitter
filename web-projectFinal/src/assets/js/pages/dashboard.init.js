@@ -196,10 +196,10 @@ fetch('https://cors-anywhere.herokuapp.com/http://138.91.35.252/output/correlati
     var bP = document.getElementById('bidenPValue');
     var bR = document.getElementById('bidenRValue');
 
-    tP.innerHTML = "Trump P Value: " + prData['trump_p'];
-    tR.innerHTML = "Trump R Value: " + prData['trump_r'];
-    bP.innerHTML = "Biden P Value: " + prData['biden_p'];
-    bR.innerHTML = "Biden R Value: " + prData['biden_r'];
+    tP.innerHTML = "P Value: " + prData['trump_p'];
+    tR.innerHTML = "R Value: " + prData['trump_r'];
+    bP.innerHTML = "P Value: " + prData['biden_p'];
+    bR.innerHTML = "R Value: " + prData['biden_r'];
 
 });
 
@@ -259,7 +259,7 @@ function CreateTableFromJSON(data, date) {
     for (f in filter) {
         dict = {
             'Tweet': filter[f]['text'],
-            'Processed Tweet': filter[f]['processed_text'],
+            // 'Processed Tweet': filter[f]['processed_text'],
             'Compounded Sentiment': filter[f]['compounded'],
             'Positive Sentiment': filter[f]['positive'],
             'Neutral Sentiment': filter[f]['neutral'],
@@ -330,11 +330,14 @@ function CreateTableFromJSON(data, date) {
     // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
     var tweetsTableTitle = document.getElementById('tweetsTableTitle');
     tweetsTableTitle.innerHTML = '';
-    tweetsTableTitle.innerHTML = "Tweets Table " + newForm;
+    tweetsTableTitle.innerHTML = "Tweets of the Day: " + newForm;
     var divContainer = document.getElementById("tweetTable");
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
 } // Works
+
+
+
 
 function createWordCloud(data, number) {
 
@@ -377,7 +380,7 @@ function createChart(chartID, X1, X2, Y) {
             width: 3,
         },
         series: [{
-            name: 'Tweet Sentiment',
+            name: 'Twitter',
             type: 'line',
             data: X1
         }, {
@@ -460,6 +463,17 @@ function createChart(chartID, X1, X2, Y) {
                         },
                         text: 'Election day - 3 Nov'
                     }
+                },
+
+                {
+                    x: new Date('22 Oct 2020 00:00:00').getTime(),
+                    borderColor: '#775DD0',
+                    label: {
+                        style: {
+                            color: '#fff',
+                        },
+                        text: 'Third Presidential Debate - 22 Oct'
+                    }
                 }
             ]
         }
@@ -493,11 +507,11 @@ function createSentiChart(chartID, X1, X2, Y) {
             width: 3,
         },
         series: [{
-            name: 'Positive Sentiment',
+            name: 'Positive',
             type: 'line',
             data: X1
         }, {
-            name: 'Negative Sentiment',
+            name: 'Negative',
             type: 'line',
             data: X2
         }],
@@ -553,6 +567,17 @@ function createSentiChart(chartID, X1, X2, Y) {
                             color: '#fff',
                         },
                         text: 'Election day - 3 Nov'
+                    }
+                },
+
+                {
+                    x: new Date('22 Oct 2020 00:00:00').getTime(),
+                    borderColor: '#775DD0',
+                    label: {
+                        style: {
+                            color: '#fff',
+                        },
+                        text: 'Third Presidential Debate - 22 Oct'
                     }
                 }
             ]
@@ -588,11 +613,11 @@ function createTrumpVBidenChart(chartID, X1, X2, Y) {
             width: 3,
         },
         series: [{
-            name: 'Trump Compound Sentiment',
+            name: 'Trump',
             type: 'line',
             data: X1
         }, {
-            name: 'Biden Compound Sentiment',
+            name: 'Biden',
             type: 'line',
             data: X2
         }],
@@ -648,6 +673,17 @@ function createTrumpVBidenChart(chartID, X1, X2, Y) {
                             color: '#fff',
                         },
                         text: 'Election day - 3 Nov'
+                    }
+                },
+
+                {
+                    x: new Date('22 Oct 2020 00:00:00').getTime(),
+                    borderColor: '#775DD0',
+                    label: {
+                        style: {
+                            color: '#fff',
+                        },
+                        text: 'Third Presidential Debate - 22 Oct'
                     }
                 }
             ]
