@@ -33,6 +33,7 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     fivethirtyeightData = data;
 
     // Fetch another API
+    //return fetch('http://138.91.35.252/output/processed.json');
     return fetch('https://cors-anywhere.herokuapp.com/http://138.91.35.252/output/processed.json', { headers: { 'x-requested-with': 'xmlhttprequest' } });
 
 }).then(function (response) {
@@ -60,6 +61,11 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     // ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00", "2018-09-19T04:30:00", "2018-09-19T05:30:00", "2018-09-19T06:30:00"]
     for (pD in pollingData) {
         curDate = pollingData[pD]['date'];
+
+        sumPositiveTrump = 0.0;
+        sumNegativeTrump = 0.0;
+        sumPositiveBiden = 0.0;
+        sumNegativeBiden = 0.0;
 
         // Five thirty eight data
         for (item in fivethirtyeightData) {
@@ -94,25 +100,51 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
                     totalDateArr.push(curDate + 'T' + curS['hour'] + ':00:00');
                 }
 
+                sumPositiveTrump += parseFloat(curS['trump']['positive'].toFixed(2));
+                sumNegativeTrump += parseFloat(curS['trump']['negative'].toFixed(2));
+                sumPositiveBiden += parseFloat(curS['biden']['positive'].toFixed(2));
+                sumNegativeBiden += parseFloat(curS['biden']['negative'].toFixed(2));
 
                 bidenCompoundArr.push(curS['biden']['compounded'].toFixed(2));
                 trumpCompoundArr.push(curS['trump']['compounded'].toFixed(2));
 
-                bidenPositiveArr.push(curS['biden']['positive'].toFixed(2));
-                bidenNegativeArr.push(curS['biden']['negative'].toFixed(2));
 
-                trumpPositiveArr.push(curS['trump']['positive'].toFixed(2));
-                trumpNegativeArr.push(curS['trump']['negative'].toFixed(2));
+                //bidenPositiveArr.push(curS['biden']['positive'].toFixed(2));
+                //bidenNegativeArr.push(curS['biden']['negative'].toFixed(2));
+
+
+                //trumpPositiveArr.push(curS['trump']['positive'].toFixed(2));
+                //trumpNegativeArr.push(curS['trump']['negative'].toFixed(2));
             } catch (err) {
                 bidenCompoundArr.push(0);
                 trumpCompoundArr.push(0);
 
-                bidenPositiveArr.push(0);
-                bidenNegativeArr.push(0);
+                sumPositiveTrump += 0;
+                sumNegativeTrump += 0;
+                sumPositiveBiden += 0;
+                sumNegativeBiden += 0;
+                // bidenPositiveArr.push(0);
+                // bidenNegativeArr.push(0);
 
-                trumpPositiveArr.push(0);
-                trumpNegativeArr.push(0);
+                // trumpPositiveArr.push(0);
+                // trumpNegativeArr.push(0);
             }
+
+
+        }
+        avgPositiveTrump = sumPositiveTrump / 24;
+        avgNegativeTrump = sumNegativeTrump / 24;
+        avgPositiveBiden = sumPositiveBiden / 24;
+        avgNegativeBiden = sumNegativeBiden / 24;
+        console.log('---------------------------');
+        console.log('Avg Positive Trump: ' + avgPositiveTrump);
+        console.log('Sum Positive Trump: ' + sumPositiveTrump);
+        for (i = 0; i < 24; i++) {
+            bidenPositiveArr.push(Math.trunc((avgPositiveBiden.toFixed(2) * 100)));
+            bidenNegativeArr.push(Math.trunc((avgNegativeBiden.toFixed(2) * 100)));
+
+            trumpPositiveArr.push(Math.trunc((avgPositiveTrump.toFixed(2) * 100)));
+            trumpNegativeArr.push(Math.trunc((avgNegativeTrump.toFixed(2) * 100)));
         }
     }
 
