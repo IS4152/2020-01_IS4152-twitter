@@ -33,8 +33,8 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     fivethirtyeightData = data;
 
     // Fetch another API
-    //return fetch('http://138.91.35.252/output/processed.json');
-    return fetch('https://cors-anywhere.herokuapp.com/http://138.91.35.252/output/processed.json', { headers: { 'x-requested-with': 'xmlhttprequest' } });
+    return fetch('http://138.91.35.252/output/processed.json');
+    //return fetch('https://cors-anywhere.herokuapp.com/http://138.91.35.252/output/processed.json', { headers: { 'x-requested-with': 'xmlhttprequest' } });
 
 }).then(function (response) {
     if (response.ok) {
@@ -61,6 +61,8 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     // ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00", "2018-09-19T04:30:00", "2018-09-19T05:30:00", "2018-09-19T06:30:00"]
     for (pD in pollingData) {
         curDate = pollingData[pD]['date'];
+
+        totalDateArr.push(curDate);
 
         sumPositiveTrump = 0.0;
         sumNegativeTrump = 0.0;
@@ -94,11 +96,11 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
                 }
 
 
-                if (curS['hour'] <= 9) {
+                /* if (curS['hour'] <= 9) {
                     totalDateArr.push(curDate + 'T0' + curS['hour'] + ':00:00');
                 } else if (curS['hour'] >= 10) {
                     totalDateArr.push(curDate + 'T' + curS['hour'] + ':00:00');
-                }
+                } */
 
                 sumPositiveTrump += parseFloat(curS['trump']['positive'].toFixed(2));
                 sumNegativeTrump += parseFloat(curS['trump']['negative'].toFixed(2));
@@ -139,13 +141,13 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
         console.log('---------------------------');
         console.log('Avg Positive Trump: ' + avgPositiveTrump);
         console.log('Sum Positive Trump: ' + sumPositiveTrump);
-        for (i = 0; i < 24; i++) {
-            bidenPositiveArr.push(Math.trunc((avgPositiveBiden.toFixed(2) * 100)));
-            bidenNegativeArr.push(Math.trunc((avgNegativeBiden.toFixed(2) * 100)));
+        //for (i = 0; i < 24; i++) {
+        bidenPositiveArr.push(Math.trunc((avgPositiveBiden.toFixed(2) * 100)));
+        bidenNegativeArr.push(Math.trunc((avgNegativeBiden.toFixed(2) * 100)));
 
-            trumpPositiveArr.push(Math.trunc((avgPositiveTrump.toFixed(2) * 100)));
-            trumpNegativeArr.push(Math.trunc((avgNegativeTrump.toFixed(2) * 100)));
-        }
+        trumpPositiveArr.push(Math.trunc((avgPositiveTrump.toFixed(2) * 100)));
+        trumpNegativeArr.push(Math.trunc((avgNegativeTrump.toFixed(2) * 100)));
+        //}
     }
 
     firstDate = pollingData[0]['date'];
