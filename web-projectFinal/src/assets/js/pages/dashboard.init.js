@@ -58,6 +58,9 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
 
     bidenCompoundArr = [];
     trumpCompoundArr = [];
+
+    aggreTrumpCompoundArr = [];
+    aggreBidenCompoundArr = [];
     // ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00", "2018-09-19T04:30:00", "2018-09-19T05:30:00", "2018-09-19T06:30:00"]
     for (pD in pollingData) {
         curDate = pollingData[pD]['date'];
@@ -69,18 +72,21 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
         sumPositiveBiden = 0.0;
         sumNegativeBiden = 0.0;
 
+        sumCompoundTrump = 0.0;
+        sumCompoundBiden = 0.0;
+
         // Five thirty eight data
         for (item in fivethirtyeightData) {
             if (fivethirtyeightData[item]['date'] == curDate) {
                 if (fivethirtyeightData[item]['candidate'] == 'Joseph R. Biden Jr.') {
-                    for (i = 0; i < 24; i++) {
-                        fteBidenArr.push(Math.trunc(fivethirtyeightData[item]['pct_trend_adjusted'].toFixed(2)));
-                    }
+
+                    fteBidenArr.push(Math.trunc(fivethirtyeightData[item]['pct_trend_adjusted'].toFixed(2)));
+
                 }
                 else {
-                    for (i = 0; i < 24; i++) {
-                        fteTrumpArr.push(Math.trunc(fivethirtyeightData[item]['pct_trend_adjusted'].toFixed(2)));
-                    }
+
+                    fteTrumpArr.push(Math.trunc(fivethirtyeightData[item]['pct_trend_adjusted'].toFixed(2)));
+
                 }
 
             }
@@ -107,6 +113,9 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
                 sumPositiveBiden += parseFloat(curS['biden']['positive'].toFixed(2));
                 sumNegativeBiden += parseFloat(curS['biden']['negative'].toFixed(2));
 
+                sumCompoundTrump += parseFloat(curS['trump']['compounded'].toFixed(2));
+                sumCompoundBiden += parseFloat(curS['biden']['compounded'].toFixed(2));
+
                 bidenCompoundArr.push(curS['biden']['compounded'].toFixed(2));
                 trumpCompoundArr.push(curS['trump']['compounded'].toFixed(2));
 
@@ -125,6 +134,9 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
                 sumNegativeTrump += 0;
                 sumPositiveBiden += 0;
                 sumNegativeBiden += 0;
+
+                sumCompoundTrump += 0;
+                sumCompoundBiden += 0;
                 // bidenPositiveArr.push(0);
                 // bidenNegativeArr.push(0);
 
@@ -138,6 +150,10 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
         avgNegativeTrump = sumNegativeTrump / 24;
         avgPositiveBiden = sumPositiveBiden / 24;
         avgNegativeBiden = sumNegativeBiden / 24;
+
+        avgCompoundTrump = sumCompoundTrump / 24;
+        avgCompoundBiden = sumCompoundBiden / 24;
+
         console.log('---------------------------');
         console.log('Avg Positive Trump: ' + avgPositiveTrump);
         console.log('Sum Positive Trump: ' + sumPositiveTrump);
@@ -147,6 +163,9 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
 
         trumpPositiveArr.push(Math.trunc((avgPositiveTrump.toFixed(2) * 100)));
         trumpNegativeArr.push(Math.trunc((avgNegativeTrump.toFixed(2) * 100)));
+
+        aggreTrumpCompoundArr.push(Math.trunc((avgCompoundTrump.toFixed(2) * 100)));
+        aggreBidenCompoundArr.push(Math.trunc((avgCompoundBiden.toFixed(2) * 100)));
         //}
     }
 
@@ -197,15 +216,15 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
     sessionStorage.setItem('pollingData', JSON.stringify(pollingData));
 
     populateWordCloud(pollingData, pollingData[0]['date']);
-    createChart('trumpSentimentChart', trumpCompoundArr, fteTrumpArr, totalDateArr);
-    createChart('bidenSentimentChart', bidenCompoundArr, fteBidenArr, totalDateArr);
+    createChart('trumpSentimentChart', aggreTrumpCompoundArr, fteTrumpArr, totalDateArr);
+    createChart('bidenSentimentChart', aggreBidenCompoundArr, fteBidenArr, totalDateArr);
 
     CreateTableFromJSON(pollingData, firstDate);
 
 
     createSentiChart('trumpPosNegChart', trumpPositiveArr, trumpNegativeArr, totalDateArr);
     createSentiChart('bidenPosNegChart', bidenPositiveArr, bidenNegativeArr, totalDateArr);
-    createTrumpVBidenChart("trumpBidenSentimentChart", trumpCompoundArr, bidenCompoundArr, totalDateArr);
+    createTrumpVBidenChart("trumpBidenSentimentChart", aggreTrumpCompoundArr, aggreBidenCompoundArr, totalDateArr);
 }).catch(function (error) {
     console.warn(error);
 });
