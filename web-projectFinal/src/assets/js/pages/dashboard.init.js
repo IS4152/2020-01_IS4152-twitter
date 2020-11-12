@@ -268,23 +268,33 @@ function populateWordCloud(data, date) {
     t4.innerHTML = '';
     var t5 = document.getElementById('topic5');
     t5.innerHTML = '';
+    var t6 = document.getElementById('topic6');
+    t6.innerHTML = '';
 
 
-    var curTopics;
+
+    var curTopics_trump;
+    var curTopics_biden;
 
     for (d in data) {
         if (data[d]['date'] == date) {
-            curTopics = data[d]['topics'];
+            curTopics_trump = data[d]['topics']['trump'];
         }
     }
 
-    var topicsWordArr = [];
+    for (d in data) {
+        if (data[d]['date'] == date) {
+            curTopics_biden = data[d]['topics']['biden'];
+        }
+    }
 
-    for (cT in curTopics) {
-        var item = curTopics[cT];
+    var topicsWordArr_trump = [];
+
+    for (cT in curTopics_trump) {
+        var item = curTopics_trump[cT];
         for (words in item) {
 
-            topicsWordArr.push(
+            topicsWordArr_trump.push(
                 {
                     'x': words,
                     'value': item[words],
@@ -294,9 +304,31 @@ function populateWordCloud(data, date) {
 
 
         }
-        createWordCloud(topicsWordArr, (parseInt(cT) + 1));
+        createWordCloud(topicsWordArr_trump, (parseInt(cT) + 1));
 
     }
+
+
+    var topicsWordArr_biden = [];
+
+    for (cT in curTopics_biden) {
+        var item = curTopics_biden[cT];
+        for (words in item) {
+
+            topicsWordArr_biden.push(
+                {
+                    'x': words,
+                    'value': item[words],
+                    'category': words
+                }
+            );
+
+
+        }
+        createWordCloud(topicsWordArr_biden, (parseInt(cT) + 4));
+
+    }
+
 }
 
 
