@@ -146,13 +146,13 @@ fetch('https://projects.fivethirtyeight.com/polls/president-general/national/pol
 
 
         }
-        avgPositiveTrump = sumPositiveTrump / 24;
-        avgNegativeTrump = sumNegativeTrump / 24;
-        avgPositiveBiden = sumPositiveBiden / 24;
-        avgNegativeBiden = sumNegativeBiden / 24;
+        avgPositiveTrump = sumPositiveTrump / 24.0;
+        avgNegativeTrump = sumNegativeTrump / 24.0;
+        avgPositiveBiden = sumPositiveBiden / 24.0;
+        avgNegativeBiden = sumNegativeBiden / 24.0;
 
-        avgCompoundTrump = sumCompoundTrump / 24;
-        avgCompoundBiden = sumCompoundBiden / 24;
+        avgCompoundTrump = sumCompoundTrump / 24.0;
+        avgCompoundBiden = sumCompoundBiden / 24.0;
 
         console.log('---------------------------');
         console.log('Avg Positive Trump: ' + avgPositiveTrump);
