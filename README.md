@@ -1,4 +1,7 @@
-# IS4152-twitter
+# Sentiment Analysis Dashboard for 2020 US Presidential Election
+
+Ths project aims to analyse the sentiments derived from the micro-blogging platform, Twitter. Our goal is to identify the public sentiments towards the presidential candidates, Trump and Biden, during the U.S. presidential elections 2020. Sentiment analysis and topic modelling is performed to 
+
 
 ## Installing the project
 
