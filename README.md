@@ -2,8 +2,7 @@
 
 Ths project aims to analyse the sentiments derived from the micro-blogging platform, Twitter. Our goal is to identify the public sentiments towards the presidential candidates, Trump and Biden, during the U.S. presidential elections 2020. Sentiment analysis and topic modelling is performed to uncover insights and analysis of the election sentiment.
 
-
-![picture](https://ibb.co/3vQk9CY)
+![g-all](https://user-images.githubusercontent.com/46909561/99180711-b5300200-2763-11eb-957c-a66b3d9e6d59.png)
 
 ## Installing the project
 
