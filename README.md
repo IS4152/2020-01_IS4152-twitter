@@ -12,6 +12,8 @@ Topic Modelling
 
 Run `pip install -r requirements.txt` to install the necessary packages needed to run the visualisation and to run topic modelling and sentiment analysis.
 
+Run `npm i` to then install all the necessary node_modules 
+
 ## Running the project locally
 
 Enter into the directory `web-projectFinal` and then run `gulp`. 
