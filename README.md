@@ -1,7 +1,9 @@
 # Sentiment Analysis Dashboard for 2020 US Presidential Election
 
-Ths project aims to analyse the sentiments derived from the micro-blogging platform, Twitter. Our goal is to identify the public sentiments towards the presidential candidates, Trump and Biden, during the U.S. presidential elections 2020. Sentiment analysis and topic modelling is performed to 
+Ths project aims to analyse the sentiments derived from the micro-blogging platform, Twitter. Our goal is to identify the public sentiments towards the presidential candidates, Trump and Biden, during the U.S. presidential elections 2020. Sentiment analysis and topic modelling is performed to uncover insights and analysis of the election sentiment.
 
+
+![picture](https://ibb.co/3vQk9CY)
 
 ## Installing the project
 
